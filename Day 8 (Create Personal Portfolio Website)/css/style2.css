@@ -1,0 +1,199 @@
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(182, 211, 236);
+    box-sizing: border-box;
+}
+
+header {
+    background-color: rgb(96, 96, 97);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 2.5em;
+    text-shadow: 
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(58, 58, 59);
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: rgb(96, 96, 97);
+    border-radius: 5px;
+}
+
+.main {
+    padding: 20px;
+}
+
+.main h1 {
+    text-align: center;
+    font-size: 2em;
+    color: rgb(58, 58, 59);
+}
+
+.main h2 {
+    text-align: center;
+    color: rgb(96, 96, 97);
+    font-weight: normal;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: rgb(58, 58, 59);
+    margin: 10px 0;
+}
+
+
+.ex1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.ex1 img {
+    width: 450px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.ex1 p {
+    width: 60%;
+    font-size: 1.1em;
+    line-height: 2;
+}
+
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+.column {
+    float: left;
+    width: 20%; 
+    padding: 10px;
+    text-align: center; 
+}
+
+.column img {
+    width: 100%;
+    height: auto;
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain; 
+    margin: 0 auto; 
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.column h2 {
+    color: rgb(58, 58, 59);
+}
+
+
+.content {
+    text-align: center;
+    margin: 20px;
+}
+
+.content img {
+    width: 75%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.content p {
+    text-align: left;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 0 auto;
+    width: 80%;
+}
+
+
+.contain {
+    background-color: rgb(240, 240, 240);
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contain h1 {
+    text-align: center;
+    color: rgb(58, 58, 59);
+    margin-bottom: 20px;
+}
+
+#LoginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: rgb(58, 58, 59);
+}
+
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+input[type="submit"] {
+    background-color: rgb(96, 96, 97);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(58, 58, 59);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(96, 96, 97);
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 1em;
+}

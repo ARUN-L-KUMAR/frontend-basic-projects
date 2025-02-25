@@ -1,0 +1,84 @@
+body{
+    margin:0;
+    padding: 0;
+    background-color: aliceblue;
+    font-family: sans-serif;
+}
+nav{
+    background-color: #313131;
+    width: 100%;
+    padding: 10px;
+}
+nav .menu{
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+}
+nav .menu .logo a{
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+.menu ul{
+    list-style-type: none;
+    display: inline-flex;
+    margin-left: 25px;
+}
+.menu ul li{
+    margin-right: 60px;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.img::before{
+    content: ' ';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 1, 2, 0.5) ;
+    
+}
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    padding: 0 20px;
+}
+.title{
+    font-size: 40px;
+    font-weight: bold;
+    color: beige;
+
+}
+.sub-title{
+    font-size: 25px;
+    font-weight: bold;
+    color: azure;
+}
+.btn button{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: aqua;
+    margin-top: 20px;
+}
+footer{
+    background-color: #313131;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    margin-top: 200px;
+}

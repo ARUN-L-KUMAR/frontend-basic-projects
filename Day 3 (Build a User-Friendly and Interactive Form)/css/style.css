@@ -1,0 +1,71 @@
+body{
+    margin: 0;
+    background-color: rgb(202, 250, 214);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.container{
+    background-color: rgb(255, 225, 225);
+    position: relative;
+    height: 500px;
+    width: 450px;
+    border-radius: 10px;
+    padding: 100px;
+    box-sizing: border-box;
+    box-shadow: 14px 20px 3px rgb(189, 188, 188);   
+}
+.Login-logo{
+    height: 100px;
+    width: 100px;
+    background: url("../image/logo.webp");
+    background-size: cover;
+    margin: auto;
+    border-radius: 50%;
+    box-shadow:  3px 2px 5px rgb(155, 152, 152);
+}
+.Title{
+    color: blue;
+    font-weight: bold;
+}
+.inputs{
+    text-align: left;
+    margin-top: 20px;
+}
+label,input,button{
+    display: block;
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+}
+label{
+    margin-bottom: 15px;
+    color: blue;
+}
+input{
+    background: white;
+    padding: 10px;
+    height: 50px;
+    border-radius: 50px;
+    box-shadow: 8px 5px 5px grey;
+    margin-bottom: 10px;
+}
+button{
+    background-color: blue;
+    color: white;
+    width: 150px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 6px 5px 4px grey;
+}
+button:hover{
+    background-color: rgb(240, 102, 102);
+    color: white;
+}
