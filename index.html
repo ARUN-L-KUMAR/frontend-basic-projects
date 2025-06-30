@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Frontend Projects - Portfolio Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .icon-ecommerce { background: linear-gradient(135deg, #ff6b6b, #feca57); }
+        .icon-form { background: linear-gradient(135deg, #48dbfb, #0abde3); }
+        .icon-blog { background: linear-gradient(135deg, #ff9ff3, #f368e0); }
+        .icon-netflix { background: linear-gradient(135deg, #ff3838, #e55039); }
+        .icon-design { background: linear-gradient(135deg, #3742fa, #2f3542); }
+        .icon-todo { background: linear-gradient(135deg, #2ed573, #7bed9f); }
+        .icon-portfolio { background: linear-gradient(135deg, #ff6348, #ff4757); }
+        .icon-weather { background: linear-gradient(135deg, #70a1ff, #5352ed); }
+        .icon-speech { background: linear-gradient(135deg, #ff9f43, #ffa801); }
+        .icon-lic { background: linear-gradient(135deg, #6c5ce7, #a29bfe); }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .view-project-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .view-project-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 My Frontend Projects</h1>
+            <p>A showcase of my web development journey</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">11</span>
+                <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Technologies</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Hours Coded</span>
+            </div>
+        </div>
+
+        <div class="projects-grid">
+            <!-- E-Commerce Website -->
+            <div class="project-card">
+                <div class="project-icon icon-ecommerce">🛒</div>
+                <h3 class="project-title">E-Commerce Product Page</h3>
+                <p class="project-description">A responsive product showcase page with price tags, product gallery, and modern design elements for an online shopping experience.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                </div>
+                <a href="./Day 1,2 (E-Commerce Website's One Page With Price Tag)/html/index.html" class="view-project-btn">
+                    🔗 View Project
+                </a>
+            </div>
+
+            <!-- Interactive Form -->
+            <div class="project-card">
+                <div class="project-icon icon-form">📝</div>
+                <h3 class="project-title">Interactive User Form</h3>
+                <p class="project-description">A user-friendly and interactive form with validation, modern styling, and smooth animations for better user experience.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                </div>
+                <a href="./Day 3 (Build a User-Friendly and Interactive Form)/html/index.html" class="view-project-btn">
+                    🔗 View Project
+                </a>
+            </div>
+
+            <!-- Blog Website v1 -->
+            <div class="project-card">
+                <div class="project-icon icon-blog">📰</div>
+                <h3 class="project-title">Blog Website v1</h3>
+                <p class="project-description">A modern blog website featuring anime content with clean layout, image galleries, and responsive design for content sharing.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                </div>
+                <a href="./Day 4-v1 (Developing a Blog Website)/html/index.html" class="view-project-btn">
+                    🔗 View Project
+                </a>
+            </div>
+
+            <!-- Blog Website v2 -->
+            <div class="project-card">
+                <div class="project-icon icon-blog">📝</div>
+                <h3 class="project-title">Blog Website v2</h3>
+                <p class="project-description">Enhanced version of the blog website with improved styling, better content organization, and optimized user interface.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                </div>
+                <a href="./Day 4-v2 (Build a Blog Website)/html/index.html" class="view-project-btn">
+                    🔗 View Project
+                </a>
+            </div>
+
+            <!-- Blog Layout Box Model -->
+            <div class="project-card">
+                <div class="project-icon icon-design">📐</div>
+                <h3 class="project-title">Blog Layout Design</h3>
+                <p class="project-description">A focused study on CSS Box Model implementation through blog website layout design with proper spacing and positioning.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                </div>
+                <a href="./Day 4-v3 (Design Blog Website Layout Using Box Model)/html/index.html" class="view-project-btn">
+                    🔗 View Project
+                </a>
+            </div>
+
+            <!-- Netflix Clone -->
+            <div class="project-card">
+                <div class="project-icon icon-netflix">🎬</div>
+                <h3 class="project-title">Netflix Website Clone</h3>
+                <p class="project-description">A realtime Netflix website replica with movie carousels, hero banners, and responsive design mimicking the original platform.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                </div>
+                <a href="./Day 5 (Develop a Realtime NETFLIX Website)/html/index.html" class="view-project-btn">
+                    🔗 View Project
+                </a>
+            </div>
+
+            <!-- Simple Web Design -->
+            <div class="project-card">
+                <div class="project-icon icon-design">🎨</div>
+                <h3 class="project-title">Simple Web Design</h3>
+                <p class="project-description">A clean and minimalist web design showcasing fundamental HTML and CSS principles with elegant styling and layout.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                </div>
+                <a href="./Day 6 (Develop a Simple Web Design)/html/index.html" class="view-project-btn">
+                    🔗 View Project
+                </a>
+            </div>
+
+            <!-- To-Do Application -->
+            <div class="project-card">
+                <div class="project-icon icon-todo">✅</div>
+                <h3 class="project-title">To-Do Application</h3>
+                <p class="project-description">An interactive task management application with JavaScript functionality for adding, editing, and deleting tasks dynamically.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+                <a href="./Day 7 (JavaScript Overview Create To-Do Application/html/index.html" class="view-project-btn">
+                    🔗 View Project
+                </a>
+            </div>
+
+            <!-- Personal Portfolio -->
+            <div class="project-card">
+                <div class="project-icon icon-portfolio">👨‍💻</div>
+                <h3 class="project-title">Personal Portfolio</h3>
+                <p class="project-description">A professional portfolio website showcasing skills, projects, and experience with modern design and interactive elements.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+                <a href="./Day 8 (Create Personal Portfolio Website)/html/index.html" class="view-project-btn">
+                    🔗 View Project
+                </a>
+            </div>
+
+            <!-- Weather Application -->
+            <div class="project-card">
+                <div class="project-icon icon-weather">🌤️</div>
+                <h3 class="project-title">Weather Application</h3>
+                <p class="project-description">A dynamic weather app with real-time data fetching, location-based forecasts, and beautiful weather visualization interface.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+                <a href="./Day 9 (Develop a Weather Application)/html/index.html" class="view-project-btn">
+                    🔗 View Project
+                </a>
+            </div>
+
+            <!-- Text to Speech -->
+            <div class="project-card">
+                <div class="project-icon icon-speech">🔊</div>
+                <h3 class="project-title">Text to Speech App</h3>
+                <p class="project-description">An interactive text-to-speech application using Web Speech API with voice selection and speech controls for accessibility.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+                <a href="./Day 10 (Develop a Text To Speech Application)/HTML & JS/index.html" class="view-project-btn">
+                    🔗 View Project
+                </a>
+            </div>
+
+            <!-- LIC Agent Website -->
+            <div class="project-card">
+                <div class="project-icon icon-lic">🏢</div>
+                <h3 class="project-title">LIC Agent's Website</h3>
+                <p class="project-description">A professional business website for LIC insurance agents with service information, contact forms, and client-focused design.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                </div>
+                <a href="./LIC Agent's Personal Website/html/index.html" class="view-project-btn">
+                    🔗 View Project
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🔥 Built with passion and dedication • Frontend Development Journey 2024-2025</p>
+        </div>
+    </div>
+</body>
+</html>
