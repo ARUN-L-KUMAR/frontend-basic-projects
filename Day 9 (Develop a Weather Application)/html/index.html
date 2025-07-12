@@ -1,72 +1,477 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>weather app</title>
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Weather App - Real-time Weather Information</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Animated Weather Icons -->
+    <div class="weather-icon">☁️</div>
+    <div class="weather-icon">🌤️</div>
+    <div class="weather-icon">🌦️</div>
+    <div class="weather-icon">⛅</div>
 
+    <!-- Main Container -->
+    <div class="container">
+        <img src="https://safikumar00.github.io/assets/main.png" class="main-img" alt="Weather App Icon">
+        
+        <!-- Date and Search Card -->
+        <div class="box-1 fade-in">
+            <!-- Decorative Elements -->
+            <div class="hinge">
+                <div class='rect'></div>
+                <div class='rect'></div>
+                <div class='rect'></div>
+                <div class='rect'></div>
+                <div class='rect'></div>
+                <div class='rect'></div>
+            </div>
 
+            <!-- Card Header -->
+            <div class="card-header">
+                <h1 class="card-title">📅 Date & Location</h1>
+                <p class="card-subtitle">Current date and weather search</p>
+            </div>
 
-<div class="container">
-  <img src="https://safikumar00.github.io/assets/main.png" class="main-img">
-  <div class="box-1">
-    <div class="hinge">
-      <div class='rect'></div>
-      <div class='rect'></div>
-      <div class='rect'></div>
-      <div class='rect'></div>
-      <div class='rect'></div>
-      <div class='rect'></div>
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="sec">
+                    <input 
+                        type="text" 
+                        placeholder="🔍 Enter your city name..." 
+                        class="enter" 
+                        id="city-name" 
+                        required
+                        autocomplete="off"
+                    >
+                    <button class="submit" type="button" onclick="cityNameChange()">
+                        🌍 Search
+                    </button>
+                </div>
+            </div>
+
+            <!-- Date Display -->
+            <div class="date">
+                <p id="year" class="hallow"></p>
+                <p id="date" class="hallow"></p>
+                <p id="month" class="hallow"></p>
+                <p id="day" class="hallow"></p>
+            </div>
+
+            <!-- Quick Location Buttons -->
+            <div style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap;">
+                <button onclick="setQuickLocation('New York')" style="padding: 0.5rem 1rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; border: none; border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: var(--transition);">🗽 NYC</button>
+                <button onclick="setQuickLocation('London')" style="padding: 0.5rem 1rem; background: linear-gradient(135deg, var(--success-color), #38a169); color: white; border: none; border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: var(--transition);">🇬🇧 London</button>
+                <button onclick="setQuickLocation('Tokyo')" style="padding: 0.5rem 1rem; background: linear-gradient(135deg, var(--warning-color), #c05621); color: white; border: none; border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: var(--transition);">🇯🇵 Tokyo</button>
+                <button onclick="setQuickLocation('Sydney')" style="padding: 0.5rem 1rem; background: linear-gradient(135deg, var(--info-color), #3182ce); color: white; border: none; border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: var(--transition);">🇦🇺 Sydney</button>
+            </div>
+        </div>
+
+        <!-- Weather Display Card -->
+        <div class="box-2 fade-in">
+            <!-- Decorative Elements -->
+            <div class="hinge-2">
+                <div class='rect'></div>
+                <div class='rect'></div>
+                <div class='rect'></div>
+                <div class='rect'></div>
+                <div class='rect'></div>
+                <div class='rect'></div>
+            </div>
+
+            <!-- Weather Display -->
+            <div class="weather-display">
+                <div class="location-title">
+                    <h2 id="name">🌍 Weather Information</h2>
+                </div>
+
+                <!-- Temperature Display -->
+                <div class="temp">
+                    <h1 id="temp">--</h1>
+                    <span class="t-real">°C</span>
+                </div>
+
+                <!-- Weather Condition -->
+                <div class="temp-1">
+                    <h3 id="feel">Loading...</h3>
+                </div>
+
+                <!-- Weather Details -->
+                <div class="weather-info" id="weatherDetails" style="display: none;">
+                    <div class="info-card">
+                        <div class="icon">💨</div>
+                        <div class="label">Wind Speed</div>
+                        <div class="value" id="windSpeed">-- km/h</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon">💧</div>
+                        <div class="label">Humidity</div>
+                        <div class="value" id="humidity">--%</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon">👁️</div>
+                        <div class="label">Visibility</div>
+                        <div class="value" id="visibility">-- km</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon">🌡️</div>
+                        <div class="label">Feels Like</div>
+                        <div class="value" id="feelsLike">--°C</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading-state" id="loadingState" style="display: none;">
+                <div class="spinner"></div>
+                <p style="color: var(--text-secondary); font-weight: 600;">Fetching weather data...</p>
+            </div>
+
+            <!-- Error State -->
+            <div class="error-state" id="errorState" style="display: none;">
+                <h3>⚠️ City Not Found</h3>
+                <p>Please check the city name and try again.</p>
+                <button onclick="resetSearch()" style="margin-top: 1rem; padding: 0.75rem 1.5rem; background: var(--primary-color); color: white; border: none; border-radius: 25px; cursor: pointer; font-weight: 600;">🔄 Try Again</button>
+            </div>
+        </div>
     </div>
-    <h1 class="main p">Date Part</h1>
 
-    <div class="sec p">
-      <input type="input" placeholder="Enter your city name..." class="enter" id="city-name" required>
-        <button class="submit" type="button" onclick="cityNameChange()">Submit</button>
+    <!-- Social Links -->
+    <div class="social-links">
+        <a href="#" class="social-link" title="Share on Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-link" title="Share on Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-link" title="Share on LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
     </div>
 
-    <div class="date p">
-      <p id="year" class="hallow"></p>
-      <p id="date" class="hallow"></p>
-      <p id="month" class="hallow"></p>
-      <p id="day" class="hallow"></p>
-    </div>
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
 
-    <!-- <div class="date-change p">
-                <button class="plus b p-r" onclick=plus()>+</button>
-                <input type="number" class="date-input p-r" id="change-date">
-                <button class="minus b p-r" onclick=minus()>-</button>
-            </div> -->
-  </div>
+    <script>
+        // Weather Application State
+        const weatherApp = {
+            apiKey: '0cefbdd8089c7b724b58eac94e84c704',
+            currentCity: 'Visakhapatnam',
+            weatherData: null,
+            isLoading: false
+        };
 
+        // Month and day names
+        const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-  
-  <div class="box-2">
-    <div class="hinge-2">
-      <div class='rect'></div>
-      <div class='rect'></div>
-      <div class='rect'></div>
-      <div class='rect'></div>
-      <div class='rect'></div>
-      <div class='rect'></div>
-    </div>
-    <div class="card-title">
-      <h2 class="title" id="name"></h2>
-    </div>
-    <div class="temp">
-      <h1 id="temp"></h1>
-      <span class="t-real">°c</span>
-    </div>
-    <div class="temp-1 bg-blue">
-      <h3 id="feel"></h3>
-    </div>
-  </div>
-  
-</div>
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDateTime();
+            fetchWeatherData(weatherApp.currentCity);
+            setupEventListeners();
+            
+            // Update time every minute
+            setInterval(updateDateTime, 60000);
+            
+            // Show welcome message
+            setTimeout(() => {
+                showNotification('🌤️ Welcome to Enhanced Weather App! Search for any city to get started.', 'info');
+            }, 1000);
+        });
 
+        // Setup event listeners
+        function setupEventListeners() {
+            // Enter key support for search input
+            document.getElementById('city-name').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    cityNameChange();
+                }
+            });
 
-<script src="../javascript/script.js"></script>
+            // Input validation
+            document.getElementById('city-name').addEventListener('input', function(e) {
+                const value = e.target.value;
+                if (value.length > 2) {
+                    e.target.style.borderColor = 'var(--success-color)';
+                } else {
+                    e.target.style.borderColor = 'var(--border-color)';
+                }
+            });
+
+            // Add hover effects to quick location buttons
+            document.querySelectorAll('button[onclick^="setQuickLocation"]').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = 'var(--shadow-md)';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        }
+
+        // Update date and time
+        function updateDateTime() {
+            const now = new Date();
+            
+            document.getElementById('year').textContent = now.getFullYear();
+            document.getElementById('date').textContent = now.getDate().toString().padStart(2, '0');
+            document.getElementById('month').textContent = months[now.getMonth()];
+            document.getElementById('day').textContent = days[now.getDay()];
+        }
+
+        // City name change handler
+        function cityNameChange() {
+            const cityInput = document.getElementById("city-name");
+            const cityName = cityInput.value.trim();
+            
+            if (cityName === '') {
+                showNotification('⚠️ Please enter a city name!', 'error');
+                return;
+            }
+
+            if (cityName.length < 2) {
+                showNotification('⚠️ City name must be at least 2 characters long!', 'error');
+                return;
+            }
+
+            weatherApp.currentCity = cityName;
+            fetchWeatherData(cityName);
+        }
+
+        // Set quick location
+        function setQuickLocation(cityName) {
+            document.getElementById("city-name").value = cityName;
+            weatherApp.currentCity = cityName;
+            fetchWeatherData(cityName);
+        }
+
+        // Fetch weather data from API
+        async function fetchWeatherData(city) {
+            if (weatherApp.isLoading) return;
+            
+            weatherApp.isLoading = true;
+            showLoadingState();
+            
+            try {
+                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${weatherApp.apiKey}&units=metric`;
+                
+                const response = await fetch(apiUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.cod === '404') {
+                    throw new Error('City not found');
+                }
+                
+                weatherApp.weatherData = data;
+                displayWeatherData(data);
+                showNotification(`✅ Weather data loaded for ${data.name}!`, 'success');
+                
+            } catch (error) {
+                console.error('Weather fetch error:', error);
+                showErrorState();
+                showNotification('❌ Failed to fetch weather data. Please try again.', 'error');
+            } finally {
+                weatherApp.isLoading = false;
+            }
+        }
+
+        // Display weather data
+        function displayWeatherData(data) {
+            hideLoadingState();
+            hideErrorState();
+            
+            // Update basic weather info
+            document.getElementById('name').textContent = `🌍 Weather Today at ${data.name}, ${data.sys.country}`;
+            document.getElementById('temp').textContent = Math.round(data.main.temp);
+            document.getElementById('feel').textContent = getWeatherEmoji(data.weather[0].main) + ' ' + data.weather[0].main;
+            
+            // Update detailed weather info
+            document.getElementById('windSpeed').textContent = `${data.wind.speed} m/s`;
+            document.getElementById('humidity').textContent = `${data.main.humidity}%`;
+            document.getElementById('visibility').textContent = data.visibility ? `${(data.visibility / 1000).toFixed(1)} km` : 'N/A';
+            document.getElementById('feelsLike').textContent = `${Math.round(data.main.feels_like)}°C`;
+            
+            // Show weather details
+            document.getElementById('weatherDetails').style.display = 'grid';
+            
+            // Update background based on weather
+            updateBackgroundByWeather(data.weather[0].main.toLowerCase());
+        }
+
+        // Get weather emoji
+        function getWeatherEmoji(weather) {
+            const weatherEmojis = {
+                'Clear': '☀️',
+                'Clouds': '☁️',
+                'Rain': '🌧️',
+                'Drizzle': '🌦️',
+                'Thunderstorm': '⛈️',
+                'Snow': '❄️',
+                'Mist': '🌫️',
+                'Fog': '🌫️',
+                'Haze': '🌫️',
+                'Dust': '🌪️',
+                'Sand': '🌪️',
+                'Ash': '🌋',
+                'Squall': '💨',
+                'Tornado': '🌪️'
+            };
+            return weatherEmojis[weather] || '🌤️';
+        }
+
+        // Update background based on weather
+        function updateBackgroundByWeather(weather) {
+            const body = document.body;
+            
+            const weatherGradients = {
+                'clear': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                'clouds': 'linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)',
+                'rain': 'linear-gradient(135deg, #74b9ff 0%, #2d3436 100%)',
+                'drizzle': 'linear-gradient(135deg, #81ecec 0%, #74b9ff 100%)',
+                'thunderstorm': 'linear-gradient(135deg, #2d3436 0%, #636e72 100%)',
+                'snow': 'linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%)',
+                'mist': 'linear-gradient(135deg, #b2bec3 0%, #74b9ff 100%)',
+                'fog': 'linear-gradient(135deg, #b2bec3 0%, #74b9ff 100%)',
+                'haze': 'linear-gradient(135deg, #fdcb6e 0%, #e17055 100%)'
+            };
+
+            const gradient = weatherGradients[weather] || weatherGradients['clear'];
+            body.style.background = gradient;
+        }
+
+        // Show/hide states
+        function showLoadingState() {
+            document.getElementById('loadingState').style.display = 'block';
+            hideErrorState();
+            document.getElementById('weatherDetails').style.display = 'none';
+        }
+
+        function hideLoadingState() {
+            document.getElementById('loadingState').style.display = 'none';
+        }
+
+        function showErrorState() {
+            document.getElementById('errorState').style.display = 'block';
+            hideLoadingState();
+            document.getElementById('weatherDetails').style.display = 'none';
+        }
+
+        function hideErrorState() {
+            document.getElementById('errorState').style.display = 'none';
+        }
+
+        // Reset search
+        function resetSearch() {
+            hideErrorState();
+            document.getElementById('city-name').value = '';
+            document.getElementById('city-name').focus();
+            document.getElementById('name').textContent = '🌍 Weather Information';
+            document.getElementById('temp').textContent = '--';
+            document.getElementById('feel').textContent = 'Search for a city...';
+            document.getElementById('weatherDetails').style.display = 'none';
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.classList.add('show');
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4000);
+        }
+
+        // Geolocation support
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                showNotification('📍 Getting your location...', 'info');
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        fetchWeatherByCoords(lat, lon);
+                    },
+                    (error) => {
+                        showNotification('❌ Unable to get your location. Please search manually.', 'error');
+                    }
+                );
+            } else {
+                showNotification('❌ Geolocation is not supported by this browser.', 'error');
+            }
+        }
+
+        // Fetch weather by coordinates
+        async function fetchWeatherByCoords(lat, lon) {
+            weatherApp.isLoading = true;
+            showLoadingState();
+            
+            try {
+                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApp.apiKey}&units=metric`;
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                
+                weatherApp.weatherData = data;
+                weatherApp.currentCity = data.name;
+                document.getElementById('city-name').value = data.name;
+                displayWeatherData(data);
+                showNotification(`✅ Current location weather loaded for ${data.name}!`, 'success');
+                
+            } catch (error) {
+                console.error('Location weather fetch error:', error);
+                showErrorState();
+                showNotification('❌ Failed to fetch weather for your location.', 'error');
+            } finally {
+                weatherApp.isLoading = false;
+            }
+        }
+
+        // Add location button
+        setTimeout(() => {
+            const searchSection = document.querySelector('.search-section');
+            const locationBtn = document.createElement('button');
+            locationBtn.innerHTML = '📍 Use My Location';
+            locationBtn.style.cssText = `
+                width: 100%;
+                margin-top: 1rem;
+                padding: 0.75rem;
+                background: linear-gradient(135deg, var(--success-color), #38a169);
+                color: white;
+                border: none;
+                border-radius: 25px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: var(--transition);
+            `;
+            locationBtn.addEventListener('click', getCurrentLocation);
+            locationBtn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = 'var(--shadow-md)';
+            });
+            locationBtn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+            searchSection.appendChild(locationBtn);
+        }, 100);
+
+        // Initialize with default city
+        setTimeout(() => {
+            fetchWeatherData(weatherApp.currentCity);
+        }, 500);
+    </script>
 </body>
 </html>

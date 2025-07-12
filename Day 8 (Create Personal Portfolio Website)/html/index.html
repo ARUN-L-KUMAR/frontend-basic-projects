@@ -1,106 +1,444 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/style2.css">
-    <title>Arun Kumar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Portfolio - Arun Kumar</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
+    <!-- Enhanced Header -->
     <header>
-        <h1>PORTFOLIO</h1>
+        <h1>🚀 PORTFOLIO</h1>
+        <p style="font-size: 1.2rem; margin-top: 0.5rem; opacity: 0.9;">Full-Stack Developer & Tech Enthusiast</p>
     </header>
+
+    <!-- Enhanced Navigation -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href = "https://www.linkedin.com/in/badvibesarun/">About</a>
-        <a href = "https://github.com/badvibesarun?tab=repositories">Skills</a>
-        <a href="mailto:arunkumar582004@gmail.com">Contact</a>
+        <ul>
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#about">👨‍💻 About</a></li>
+            <li><a href="#skills">⚡ Skills</a></li>
+            <li><a href="#projects">💼 Projects</a></li>
+            <li><a href="#contact">📞 Contact</a></li>
+        </ul>
     </nav>
 
+    <!-- Main Content -->
     <div class="main">
-        <h1>Arun Kumar L</h1>
-        <hr>
-        <h2>I am a Computer Science Engineering Student</h2>
+        <h1 id="home">Arun Kumar L</h1>
+        <h2>Computer Science Engineering Student • Full-Stack Developer</h2>
 
-        <div class="ex1">
-            <img src="../image/cse.jpg">
-            <p>Hello! I’m Arun Kumar, a passionate Computer Science and Engineering student with a strong foundation in full-stack development. I specialize in both front-end and back-end technologies, including HTML, CSS, JavaScript, React.js, and Node.js. My experience spans from designing intuitive user interfaces to building robust and scalable backend systems. I’m always eager to learn new technologies and take on challenging projects that push the boundaries of my skills. Welcome to my portfolio, where you can explore my work and get to know more about my journey in the world of software development.</p>
-        </div>
-        <h1>My Skills</h1>
-        <div class="row"> 
-            <div class="column">
-                <div class="content">
-                    <img src="../image/html.png">
-                    <h2>HTML</h2>
-                </div>                
-            </div> 
+        <!-- Enhanced About Section -->
+        <section class="about-section fade-in reveal" id="about">
+            <div class="ex1">
+                <img src="../image/cse.jpg" alt="Computer Science Engineering" class="hover-effect">
+                <div>
+                    <h3 style="font-size: 1.8rem; color: var(--primary-color); margin-bottom: 1rem;">👋 Hello! I'm Arun Kumar</h3>
+                    <p>
+                        I'm a passionate <strong>Computer Science and Engineering student</strong> with a strong foundation in full-stack development. 
+                        My journey in technology is driven by curiosity and a desire to create innovative solutions that make a difference.
+                        <br><br>
+                        I specialize in both front-end and back-end technologies, including <strong>HTML, CSS, JavaScript, React.js, and Node.js</strong>. 
+                        My experience spans from designing intuitive user interfaces to building robust and scalable backend systems.
+                        <br><br>
+                        I'm always eager to learn new technologies, take on challenging projects, and collaborate with like-minded individuals 
+                        who share the same passion for pushing the boundaries of what's possible in software development.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-            <div class="column">
-                <div class="content">
-                    <img src="../image/css.png"  >
-                    <h2>CSS</h2>
-                </div>                
-            </div> 
+        <!-- Enhanced Skills Section -->
+        <section class="skills-section fade-in reveal" id="skills">
+            <h1>💡 My Technical Skills</h1>
+            <div class="skills-grid">
+                <div class="skill-card hover-effect">
+                    <img src="../image/html.png" alt="HTML5">
+                    <h2>HTML5</h2>
+                    <div style="margin-top: 1rem;">
+                        <div style="background: #e2e8f0; height: 8px; border-radius: 4px;">
+                            <div style="background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; width: 90%; border-radius: 4px;"></div>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--text-secondary);">Advanced</span>
+                    </div>
+                </div>
 
-            <div class="column">
-                <div class="content">
-                    <img src="../image/js.png"  >
+                <div class="skill-card hover-effect">
+                    <img src="../image/css.png" alt="CSS3">
+                    <h2>CSS3</h2>
+                    <div style="margin-top: 1rem;">
+                        <div style="background: #e2e8f0; height: 8px; border-radius: 4px;">
+                            <div style="background: linear-gradient(90deg, #48bb78, #38a169); height: 100%; width: 85%; border-radius: 4px;"></div>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--text-secondary);">Advanced</span>
+                    </div>
+                </div>
+
+                <div class="skill-card hover-effect">
+                    <img src="../image/js.png" alt="JavaScript">
                     <h2>JavaScript</h2>
-                </div>                
-            </div> 
+                    <div style="margin-top: 1rem;">
+                        <div style="background: #e2e8f0; height: 8px; border-radius: 4px;">
+                            <div style="background: linear-gradient(90deg, #ed8936, #c05621); height: 100%; width: 80%; border-radius: 4px;"></div>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--text-secondary);">Intermediate</span>
+                    </div>
+                </div>
 
-            <div class="column">
-                <div class="content">
-                    <img src="../image/raect.png" >
-                    <h2>REACT JS</h2>
-                </div>                
-            </div> 
+                <div class="skill-card hover-effect">
+                    <img src="../image/raect.png" alt="React JS">
+                    <h2>React JS</h2>
+                    <div style="margin-top: 1rem;">
+                        <div style="background: #e2e8f0; height: 8px; border-radius: 4px;">
+                            <div style="background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; width: 75%; border-radius: 4px;"></div>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--text-secondary);">Intermediate</span>
+                    </div>
+                </div>
 
-            <div class="column">
-                <div class="content">
-                    <img src="../image/node.png" >
-                    <h2>NODE JS</h2>
-                </div>                
-            </div> 
-            <div class="column">
-                <div class="content">
-                    <img src="../image/git.png" >
-                    <h2>GITHUB</h2>
-                </div>                
-            </div> 
-            <div class="column">
-                <div class="content">
-                    <img src="../image/my sql.png" >
-                    <h2>MY SQL</h2>
-                </div>                
-            </div> 
-        </div>
+                <div class="skill-card hover-effect">
+                    <img src="../image/node.png" alt="Node JS">
+                    <h2>Node JS</h2>
+                    <div style="margin-top: 1rem;">
+                        <div style="background: #e2e8f0; height: 8px; border-radius: 4px;">
+                            <div style="background: linear-gradient(90deg, #48bb78, #38a169); height: 100%; width: 70%; border-radius: 4px;"></div>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--text-secondary);">Intermediate</span>
+                    </div>
+                </div>
 
-       <div class="content">
-        <img src="../image/deve.jpg">
-        <h3>Full Stack Development</h3>
-        <p>As a full stack developer, I possess the expertise to handle both front-end and back-end development, enabling me to build complete, dynamic web applications from scratch. On the front-end, I excel in creating responsive and user-friendly interfaces using HTML, CSS, and JavaScript, enhanced by modern frameworks like React.js. My designs prioritize user experience and accessibility, ensuring that the applications are not only functional but also visually appealing.
+                <div class="skill-card hover-effect">
+                    <img src="../image/git.png" alt="Git & GitHub">
+                    <h2>Git & GitHub</h2>
+                    <div style="margin-top: 1rem;">
+                        <div style="background: #e2e8f0; height: 8px; border-radius: 4px;">
+                            <div style="background: linear-gradient(90deg, #2d3748, #4a5568); height: 100%; width: 85%; border-radius: 4px;"></div>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--text-secondary);">Advanced</span>
+                    </div>
+                </div>
 
-            On the back-end, I’m proficient in Node.js, which allows me to develop scalable and efficient server-side applications. I have experience in building RESTful APIs, managing databases, and integrating various services to ensure seamless data flow and functionality across the application. My knowledge of both front-end and back-end technologies gives me a comprehensive understanding of the development process, enabling me to deliver end-to-end solutions that meet project requirements and exceed user expectations.</p>
-       </div>
-       
+                <div class="skill-card hover-effect">
+                    <img src="../image/my sql.png" alt="MySQL">
+                    <h2>MySQL</h2>
+                    <div style="margin-top: 1rem;">
+                        <div style="background: #e2e8f0; height: 8px; border-radius: 4px;">
+                            <div style="background: linear-gradient(90deg, #ed8936, #c05621); height: 100%; width: 65%; border-radius: 4px;"></div>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--text-secondary);">Beginner</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-       <div class="contain">
-        <h1>Login Form</h1>
-        <form id ="LoginForm" onsubmit="return validateForm()">
-            <label for="username">username</label>
-            <input type="text" id="username" name="username" required>
-            <br>
+        <!-- Enhanced Project Section -->
+        <section class="project-section fade-in reveal" id="projects">
+            <img src="../image/deve.jpg" alt="Full Stack Development" class="hover-effect" style="width: 100%; max-width: 600px; height: 350px; object-fit: cover; border-radius: 12px; margin-bottom: 2rem; display: block; margin-left: auto; margin-right: auto;">
+            
+            <h3>🚀 Full Stack Development Excellence</h3>
+            <p>
+                As a <strong>full stack developer</strong>, I possess comprehensive expertise in both front-end and back-end development, 
+                enabling me to build complete, dynamic, and scalable web applications from the ground up.
+                <br><br>
+                <strong>🎨 Front-End Mastery:</strong> I excel in creating responsive, user-friendly interfaces using modern technologies like 
+                <em>HTML5, CSS3, JavaScript ES6+, and React.js</em>. My designs prioritize user experience, accessibility, and cross-browser compatibility, 
+                ensuring that applications are not only functional but also visually stunning and intuitive to use.
+                <br><br>
+                <strong>⚙️ Back-End Proficiency:</strong> I'm proficient in <em>Node.js</em> development, which allows me to create robust, 
+                scalable server-side applications. My experience includes building RESTful APIs, managing databases, implementing authentication systems, 
+                and integrating various third-party services to ensure seamless data flow and optimal performance.
+                <br><br>
+                <strong>🔧 Complete Solutions:</strong> My knowledge of both front-end and back-end technologies provides me with a holistic 
+                understanding of the entire development lifecycle. This enables me to deliver end-to-end solutions that not only meet technical 
+                requirements but also exceed user expectations in terms of performance, security, and maintainability.
+            </p>
 
-            <label for="password">password</label>
-            <input type="password" id="password" name="password" required>
-            <br>
+            <!-- Project Stats -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem; padding: 2rem; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); border-radius: 12px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary-color);">10+</div>
+                    <div style="color: var(--text-secondary); font-weight: 600;">Projects Completed</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--success-color);">5+</div>
+                    <div style="color: var(--text-secondary); font-weight: 600;">Technologies Mastered</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--warning-color);">500+</div>
+                    <div style="color: var(--text-secondary); font-weight: 600;">Hours of Coding</div>
+                </div>
+            </div>
+        </section>
 
-            <input type="submit" value="Login" id="web">
-        </form>
-       </div>
+        <!-- Enhanced Login Form -->
+        <section class="login-container fade-in reveal" id="contact">
+            <h1>📬 Get In Touch</h1>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                Interested in collaborating? Let's connect and build something amazing together!
+            </p>
+            <form id="ContactForm">
+                <div class="form-group">
+                    <label for="name">👤 Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name (optional)">
+                </div>
+                <div class="form-group">
+                    <label for="email">✉️ Email <span style="color: #e53e3e;">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="Your email address">
+                </div>
+                <div class="form-group">
+                    <label for="message">💬 Message <span style="color: #e53e3e;">*</span></label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Type your message..."></textarea>
+                </div>
+                <button type="submit" class="login-btn">Send Message</button>
+            </form>
+
+            <!-- Contact Information -->
+            <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); border-radius: 12px; text-align: center;">
+                <h4 style="margin-bottom: 1rem; color: var(--primary-color);">📞 Alternative Contact Methods</h4>
+                <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem;">
+                    <a href="mailto:arunkumar582004@gmail.com" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">
+                        📧 Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/arun-l-kumar/" style="color: var(--primary-color); text-decoration: none; font-weight: 600;" target="_blank">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://github.com/arun-l-kumar" style="color: var(--primary-color); text-decoration: none; font-weight: 600;" target="_blank">
+                        💻 GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
     </div>
-<footer>@Designed by Arun Kumar:)</footer>    
-<script src="../javascript/script.js"></script>
 
+    <!-- Enhanced Footer -->
+    <footer>
+        <p>✨ Designed with passion by <strong>Arun Kumar</strong> • Full-Stack Developer Excellence ✨</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+            © 2024 • Built with HTML5, CSS3 & JavaScript • Always learning, always growing 🚀
+        </p>
+    </footer>
+
+    <!-- Subtle Search Box (top right corner) -->
+    <div class="search-container" style="position: fixed; top: 32px; right: 32px; z-index: 9999; opacity: 0.5; pointer-events: auto;">
+        <input type="text" class="search-box" id="projectSearch" placeholder="Search projects..." style="padding: 0.4rem 1.5rem 0.4rem 2.2rem; border-radius: 20px; border: 1px solid #ccc; background: rgba(255,255,255,0.7); font-size: 0.95rem; box-shadow: 0 2px 8px rgba(102,126,234,0.07); transition: box-shadow 0.2s, opacity 0.2s; width: 170px;">
+        <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #667eea; font-size: 1.1rem; pointer-events: none;">🔍</span>
+    </div>
+
+    <script>
+        // Enhanced form validation and submission
+        document.getElementById('ContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Enhanced validation
+            if (!email || !message) {
+                showNotification('Please fill in all required fields!', 'error');
+                return;
+            }
+            
+            if (!email.includes('@') || !email.includes('.')) {
+                showNotification('Please enter a valid email address!', 'error');
+                return;
+            }
+            
+            if (message.length < 10) { // Basic message length check
+                showNotification('Message must be at least 10 characters long!', 'error');
+                return;
+            }
+            
+            // Simulate sending process
+            const submitButton = document.querySelector('.login-btn');
+            const originalText = submitButton.textContent;
+            
+            submitButton.innerHTML = '<span class="loading"></span> Sending...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+                showNotification('🎉 Message sent successfully! I\'ll get back to you soon.', 'success');
+                
+                // Reset form
+                document.getElementById('ContactForm').reset();
+            }, 2000);
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Check on page load
+
+        // Show notification function
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            
+            // Style the notification
+            Object.assign(notification.style, {
+                position: 'fixed',
+                top: '20px',
+                right: '20px',
+                padding: '1rem 1.5rem',
+                borderRadius: '12px',
+                color: 'white',
+                fontWeight: '600',
+                zIndex: '10000',
+                transform: 'translateX(100%)',
+                transition: 'transform 0.3s ease',
+                maxWidth: '350px',
+                wordWrap: 'break-word',
+                boxShadow: 'var(--shadow-lg)'
+            });
+
+            // Set background color based on type
+            const colors = {
+                success: 'linear-gradient(135deg, #48bb78, #38a169)',
+                error: 'linear-gradient(135deg, #f56565, #e53e3e)',
+                info: 'linear-gradient(135deg, #667eea, #764ba2)',
+                warning: 'linear-gradient(135deg, #ed8936, #c05621)'
+            };
+            notification.style.background = colors[type] || colors.info;
+
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            // Remove after 4 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }, 4000);
+        }
+
+        // Add loading animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .loading {
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                border-top-color: white;
+                animation: spin 1s ease-in-out infinite;
+            }
+            
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add some interactive effects
+        document.querySelectorAll('.skill-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(-10px) scale(1)';
+            });
+        });
+
+        // Page load animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Welcome message
+        setTimeout(() => {
+            showNotification('👋 Welcome to my enhanced portfolio! Feel free to explore and get in touch.', 'info');
+        }, 1000);
+
+        // Stats Animation
+        function animateStat(element, endValue, duration = 1200) {
+            let start = 0;
+            const increment = Math.ceil(endValue / (duration / 16));
+            const update = () => {
+                start += increment;
+                if (start >= endValue) {
+                    element.textContent = endValue + (element.dataset.suffix || '');
+                } else {
+                    element.textContent = start + (element.dataset.suffix || '');
+                    requestAnimationFrame(update);
+                }
+            };
+            update();
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            // Animate stats
+            const stats = [
+                { selector: '.project-section div:nth-child(1) > div:first-child', value: 10, suffix: '+' },
+                { selector: '.project-section div:nth-child(2) > div:first-child', value: 5, suffix: '+' },
+                { selector: '.project-section div:nth-child(3) > div:first-child', value: 500, suffix: '+' }
+            ];
+            stats.forEach(stat => {
+                const el = document.querySelector(stat.selector);
+                if (el) {
+                    el.dataset.suffix = stat.suffix;
+                    animateStat(el, stat.value);
+                }
+            });
+        });
+
+        // Subtle Search Box Focus/Blur
+        const searchBox = document.getElementById('projectSearch');
+        if (searchBox) {
+            searchBox.addEventListener('focus', function() {
+                this.style.opacity = '1';
+                this.style.boxShadow = '0 4px 16px rgba(102,126,234,0.15)';
+            });
+            searchBox.addEventListener('blur', function() {
+                this.style.opacity = '0.5';
+                this.style.boxShadow = '0 2px 8px rgba(102,126,234,0.07)';
+            });
+        }
+    </script>
 </body>
 </html>

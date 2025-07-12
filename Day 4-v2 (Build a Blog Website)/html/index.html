@@ -1,40 +1,511 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Blog Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LADUN - Modern Blog Website</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../IMAGE/large-jXKsGcZSf-transformed.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <div class="menu">
-            <div class="logo">
-                <a href="#">LADUN</a>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="loader-text">LADUN</div>
+            <div class="loader-progress">
+                <div class="progress-bar"></div>
             </div>
-            <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">PRODUCT</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">CONTACT</a></li>
-                <li><a href="#">FEEDBACK</a></li>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#" class="logo-link">
+                    <span class="logo-text">LADUN</span>
+                    <div class="logo-underline"></div>
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">HOME</a></li>
+                <li><a href="#blog" class="nav-link">BLOG</a></li>
+                <li><a href="#about" class="nav-link">ABOUT</a></li>
+                <li><a href="#contact" class="nav-link">CONTACT</a></li>
+                <li><a href="#newsletter" class="nav-link">NEWSLETTER</a></li>
             </ul>
+            <div class="nav-actions">
+                <!-- Search Toggle -->
+                <button class="search-toggle" id="searchToggle" aria-label="Toggle Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <!-- Hamburger Menu -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="search-bar" id="searchBar">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search articles..." class="search-input">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="search-close" id="searchClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
         </div>
     </nav>
-    <div class="img"></div>
-    <div class="center">
-        <div class="title">Blog Page for LADUN</div>
-        <div class="sub-title">by badvibes</div>
-    
 
-    <div class="btn">
-        <a href="https://www.linkedin.com/in/badvibesarun/"><button>Add to Cart</button></a>
-        <button>Buy Now</button>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <div class="floating-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Welcome to</span>
+                    <span class="title-main">LADUN</span>
+                    <span class="title-subtitle">Modern Blog Experience</span>
+                </h1>
+                <p class="hero-description">
+                    Discover amazing stories, insights, and inspiration in our beautifully crafted blog platform.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('blog')">
+                        <i class="fas fa-rocket"></i>
+                        Explore Blogs
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('about')">
+                        <i class="fas fa-user"></i>
+                        About Us
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
 
-    </div>
-    <footer>
-        <p>&#128511;Designed by badvibes@2004&#128511;</p>
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest Blog Posts</h2>
+                <p class="section-description">Stay updated with our latest articles and insights</p>
+                
+                <!-- Blog Filters -->
+                <div class="blog-filters">
+                    <button class="filter-btn active" data-filter="all">All Posts</button>
+                    <button class="filter-btn" data-filter="technology">Technology</button>
+                    <button class="filter-btn" data-filter="design">Design</button>
+                    <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+                    <button class="filter-btn" data-filter="business">Business</button>
+                </div>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card" data-category="technology">
+                    <div class="blog-image">
+                        <img src="../IMAGE/large-jXKsGcZSf-transformed.png" alt="Blog Post 1">
+                        <div class="blog-overlay">
+                            <div class="blog-date">
+                                <span class="date-day">15</span>
+                                <span class="date-month">Jan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Technology</span>
+                            <span class="blog-read-time">5 min read</span>
+                        </div>
+                        <h3 class="blog-title">The Future of Web Development</h3>
+                        <p class="blog-excerpt">Exploring the latest trends and technologies shaping the future of web development...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <i class="fas fa-user-circle"></i>
+                                <span>by badvibes</span>
+                            </div>
+                            <button class="btn-read-more">
+                                Read More
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="design">
+                    <div class="blog-image">
+                        <img src="../IMAGE/large-jXKsGcZSf-transformed.png" alt="Blog Post 2">
+                        <div class="blog-overlay">
+                            <div class="blog-date">
+                                <span class="date-day">12</span>
+                                <span class="date-month">Jan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Design</span>
+                            <span class="blog-read-time">3 min read</span>
+                        </div>
+                        <h3 class="blog-title">Modern UI Design Principles</h3>
+                        <p class="blog-excerpt">Learn the essential principles of modern user interface design and create stunning experiences...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <i class="fas fa-user-circle"></i>
+                                <span>by badvibes</span>
+                            </div>
+                            <button class="btn-read-more">
+                                Read More
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="lifestyle">
+                    <div class="blog-image">
+                        <img src="../IMAGE/large-jXKsGcZSf-transformed.png" alt="Blog Post 3">
+                        <div class="blog-overlay">
+                            <div class="blog-date">
+                                <span class="date-day">10</span>
+                                <span class="date-month">Jan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Lifestyle</span>
+                            <span class="blog-read-time">4 min read</span>
+                        </div>
+                        <h3 class="blog-title">Digital Minimalism Guide</h3>
+                        <p class="blog-excerpt">Discover how to simplify your digital life and focus on what truly matters...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <i class="fas fa-user-circle"></i>
+                                <span>by badvibes</span>
+                            </div>
+                            <button class="btn-read-more">
+                                Read More
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- New Blog Cards -->
+                <article class="blog-card" data-category="business">
+                    <div class="blog-image">
+                        <img src="../IMAGE/large-jXKsGcZSf-transformed.png" alt="Blog Post 4">
+                        <div class="blog-overlay">
+                            <div class="blog-date">
+                                <span class="date-day">8</span>
+                                <span class="date-month">Jan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Business</span>
+                            <span class="blog-read-time">6 min read</span>
+                        </div>
+                        <h3 class="blog-title">Entrepreneurship in 2025</h3>
+                        <p class="blog-excerpt">Tips and strategies for starting and growing a business in the modern digital era...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <i class="fas fa-user-circle"></i>
+                                <span>by badvibes</span>
+                            </div>
+                            <button class="btn-read-more">
+                                Read More
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="technology">
+                    <div class="blog-image">
+                        <img src="../IMAGE/large-jXKsGcZSf-transformed.png" alt="Blog Post 5">
+                        <div class="blog-overlay">
+                            <div class="blog-date">
+                                <span class="date-day">5</span>
+                                <span class="date-month">Jan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Technology</span>
+                            <span class="blog-read-time">7 min read</span>
+                        </div>
+                        <h3 class="blog-title">AI in Everyday Life</h3>
+                        <p class="blog-excerpt">How artificial intelligence is transforming the way we live, work, and interact...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <i class="fas fa-user-circle"></i>
+                                <span>by badvibes</span>
+                            </div>
+                            <button class="btn-read-more">
+                                Read More
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="design">
+                    <div class="blog-image">
+                        <img src="../IMAGE/large-jXKsGcZSf-transformed.png" alt="Blog Post 6">
+                        <div class="blog-overlay">
+                            <div class="blog-date">
+                                <span class="date-day">2</span>
+                                <span class="date-month">Jan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Design</span>
+                            <span class="blog-read-time">5 min read</span>
+                        </div>
+                        <h3 class="blog-title">Branding for Creatives</h3>
+                        <p class="blog-excerpt">Unlock the secrets to building a memorable and effective brand as a creative professional...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <i class="fas fa-user-circle"></i>
+                                <span>by badvibes</span>
+                            </div>
+                            <button class="btn-read-more">
+                                Read More
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <!-- Fallback for no blog cards -->
+                <div class="no-blogs-message" style="display:none;text-align:center;padding:2rem;color:var(--text-light);">
+                    No blog posts found. Please check back later!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About LADUN</h2>
+                    <p class="about-description">
+                        LADUN is more than just a blog - it's a platform for sharing ideas, inspiring creativity, 
+                        and building connections. Founded by passionate writers and designers, we believe in the 
+                        power of storytelling to transform lives and communities.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="1000">0</div>
+                            <div class="stat-label">Articles Published</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="50000">0</div>
+                            <div class="stat-label">Happy Readers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="25">0</div>
+                            <div class="stat-label">Expert Writers</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-container">
+                        <img src="../IMAGE/large-jXKsGcZSf-transformed.png" alt="About LADUN">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2 class="section-title">Stay Updated</h2>
+                    <p class="newsletter-description">
+                        Subscribe to our newsletter and never miss our latest articles and updates.
+                    </p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="input-group">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Subscribe
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-description">Have a question or want to collaborate? We'd love to hear from you!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>hello@ladun.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>123 Creative Street, Design City</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <input type="text" placeholder="Subject" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-send"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">LADUN</h3>
+                    <p class="footer-description">
+                        Crafting beautiful stories and sharing inspiration with the world.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/badvibesarun/" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Design</a></li>
+                        <li><a href="#">Lifestyle</a></li>
+                        <li><a href="#">Business</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Newsletter</h4>
+                    <p>Subscribe for updates</p>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LADUN. Designed with ❤️ by badvibes</p>
+            </div>
+        </div>
     </footer>
-</div>
-</body>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../js/script.js"></script>
+
+    <!-- Blog Post Modal -->
+    <div class="modal" id="blogModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content" id="modalContent">
+            <button class="modal-close" id="modalClose" aria-label="Close Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Blog post details will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+</body>
 </html>

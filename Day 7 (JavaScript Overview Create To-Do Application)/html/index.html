@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Enhanced To-Do Application</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- App Header -->
+        <div class="app-header">
+            <h1>
+                <i class="fas fa-tasks"></i>
+                TaskFlow
+            </h1>
+            <p class="app-subtitle">Stay organized, stay productive</p>
+        </div>
+        
+        <!-- Theme Switcher -->
+        <div class="theme-switcher">
+            <button id="theme-toggle" class="theme-btn" title="Toggle Light/Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+
+        <!-- Progress Ring -->
+        <div class="progress-section">
+            <div class="progress-ring">
+                <svg class="progress-ring-svg" width="120" height="120">
+                    <defs>
+                        <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle class="progress-ring-circle-bg" cx="60" cy="60" r="50"></circle>
+                    <circle class="progress-ring-circle" cx="60" cy="60" r="50"></circle>
+                </svg>
+                <div class="progress-text">
+                    <span id="progress-percentage">0%</span>
+                    <span class="progress-label">Complete</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-list-ul"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number" id="totalTasks">0</span>
+                    <span class="stat-label">Total Tasks</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon completed">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number" id="completedTasks">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon pending">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number" id="pendingTasks">0</span>
+                    <span class="stat-label">Pending</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Input Section -->
+        <div class="input-section">
+            <div class="input-header">
+                <h3>Add New Task</h3>
+                <span class="input-subtitle">What would you like to accomplish?</span>
+            </div>
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <i class="fas fa-edit input-icon"></i>
+                    <input 
+                        type="text" 
+                        id="todo-input" 
+                        placeholder="Enter your task here..."
+                        maxlength="100"
+                        autocomplete="off"
+                    >
+                </div>
+                <div class="priority-wrapper">
+                    <i class="fas fa-flag priority-icon"></i>
+                    <select id="priority-select" class="priority-select">
+                        <option value="low">🟢 Low Priority</option>
+                        <option value="medium">🟡 Medium Priority</option>
+                        <option value="high">🔴 High Priority</option>
+                    </select>
+                </div>
+                <button class="add-task-btn" id="addTaskBtn" title="Add Task">
+                    <i class="fas fa-plus"></i>
+                    <span>Add Task</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Enhanced Filter Buttons -->
+        <div class="filter-section">
+            <div class="filter-header">
+                <h3>Filter Tasks</h3>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-list"></i>
+                    <span>All</span>
+                    <span class="filter-count" id="allCount">0</span>
+                </button>
+                <button class="filter-btn" data-filter="pending">
+                    <i class="fas fa-clock"></i>
+                    <span>Pending</span>
+                    <span class="filter-count" id="pendingCount">0</span>
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Completed</span>
+                    <span class="filter-count" id="completedCount">0</span>
+                </button>
+            </div>
+            <button class="clear-completed-btn" id="clearCompletedBtn">
+                <i class="fas fa-trash-alt"></i>
+                <span>Clear Completed</span>
+            </button>
+        </div>
+
+        <!-- Enhanced Todo List -->
+        <div class="todo-section">
+            <div class="todo-header">
+                <h3>Your Tasks</h3>
+                <div class="todo-sort">
+                    <select id="sortSelect" class="sort-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="priority">Priority</option>
+                        <option value="alphabetical">A-Z</option>
+                    </select>
+                </div>
+            </div>
+            <div class="todo-list-container">
+                <ul id="todo-list" class="todo-list">
+                    <!-- Tasks will be rendered here -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Enhanced Empty State -->
+        <div class="empty-state" id="empty-state">
+            <div class="empty-state-content">
+                <div class="empty-state-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>No tasks yet!</h3>
+                <p>Start organizing your day by adding your first task above.</p>
+                <button class="empty-state-btn" onclick="document.getElementById('todo-input').focus()">
+                    <i class="fas fa-plus"></i>
+                    Add Your First Task
+                </button>
+            </div>
+        </div>
+
+        <!-- Confetti Animation Container -->
+        <div id="confetti-container" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;display:none;"></div>
+    </div>
+
+    <script>
+        // Todo Application State
+        let todos = JSON.parse(localStorage.getItem('todos')) || [];
+        let currentFilter = 'all';
+        let editingId = null;
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTodos();
+            updateStats();
+            updateProgressRing();
+            
+            // Add event listeners
+            document.getElementById('addTaskBtn').addEventListener('click', addTodo);
+            document.getElementById('todo-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    addTodo();
+                }
+            });
+
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.dataset.filter;
+                    filterTodos(filter);
+                });
+            });
+
+            // Clear completed button
+            document.getElementById('clearCompletedBtn').addEventListener('click', clearCompleted);
+
+            // Sort select
+            document.getElementById('sortSelect').addEventListener('change', function() {
+                renderTodos();
+            });
+
+            // Theme Switcher Logic
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+            let darkMode = false;
+            
+            themeToggle.addEventListener('click', () => {
+                darkMode = !darkMode;
+                document.body.classList.toggle('dark-theme', darkMode);
+                themeIcon.className = darkMode ? 'fas fa-sun' : 'fas fa-moon';
+                localStorage.setItem('todoTheme', darkMode ? 'dark' : 'light');
+            });
+            
+            // Load saved theme
+            if (localStorage.getItem('todoTheme') === 'dark') {
+                darkMode = true;
+                document.body.classList.add('dark-theme');
+                themeIcon.className = 'fas fa-sun';
+            }
+        });
+
+        // Add new todo
+        function addTodo() {
+            const input = document.getElementById('todo-input');
+            const prioritySelect = document.getElementById('priority-select');
+            const todoText = input.value.trim();
+            
+            if (todoText === '') {
+                showNotification('Please enter a task!', 'error');
+                return;
+            }
+
+            const newTodo = {
+                id: Date.now(),
+                text: todoText,
+                completed: false,
+                priority: prioritySelect.value,
+                createdAt: new Date().toISOString(),
+                completedAt: null
+            };
+
+            todos.unshift(newTodo); // Add to beginning of array
+            input.value = '';
+            prioritySelect.value = 'low';
+            
+            saveTodos();
+            renderTodos();
+            updateStats();
+            showNotification('Task added successfully!', 'success');
+            
+            // Add success animation to container
+            document.querySelector('.container').classList.add('success-animation');
+            setTimeout(() => {
+                document.querySelector('.container').classList.remove('success-animation');
+            }, 300);
+        }
+
+        // Toggle todo completion
+        function toggleTodo(id) {
+            const todo = todos.find(t => t.id === id);
+            if (todo) {
+                todo.completed = !todo.completed;
+                todo.completedAt = todo.completed ? new Date().toISOString() : null;
+                
+                saveTodos();
+                renderTodos();
+                updateStats();
+                
+                const message = todo.completed ? 'Task completed! 🎉' : 'Task marked as pending';
+                showNotification(message, 'success');
+            }
+        }
+
+        // Delete todo
+        function deleteTodo(id) {
+            if (confirm('Are you sure you want to delete this task?')) {
+                todos = todos.filter(t => t.id !== id);
+                saveTodos();
+                renderTodos();
+                updateStats();
+                showNotification('Task deleted successfully!', 'success');
+            }
+        }
+
+        // Start editing todo
+        function editTodo(id) {
+            const todoItem = document.querySelector(`[data-id="${id}"]`);
+            const todoText = todoItem.querySelector('.todo-text');
+            const editInput = todoItem.querySelector('.edit-input');
+            
+            todoItem.classList.add('editing');
+            editInput.value = todoText.textContent;
+            editInput.focus();
+            editingId = id;
+        }
+
+        // Save edited todo
+        function saveEdit(id, newText) {
+            if (newText.trim() === '') {
+                showNotification('Task cannot be empty!', 'error');
+                return;
+            }
+
+            const todo = todos.find(t => t.id === id);
+            if (todo) {
+                todo.text = newText.trim();
+                saveTodos();
+                renderTodos();
+                showNotification('Task updated successfully!', 'success');
+            }
+            editingId = null;
+        }
+
+        // Cancel editing
+        function cancelEdit(id) {
+            const todoItem = document.querySelector(`[data-id="${id}"]`);
+            todoItem.classList.remove('editing');
+            editingId = null;
+        }
+
+        // Filter todos
+        function filterTodos(filter) {
+            currentFilter = filter;
+            
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-filter="${filter}"]`).classList.add('active');
+            
+            renderTodos();
+        }
+
+        // Clear completed todos
+        function clearCompleted() {
+            const completedCount = todos.filter(t => t.completed).length;
+            if (completedCount === 0) {
+                showNotification('No completed tasks to clear!', 'info');
+                return;
+            }
+
+            if (confirm(`Clear ${completedCount} completed task(s)?`)) {
+                todos = todos.filter(t => !t.completed);
+                saveTodos();
+                renderTodos();
+                updateStats();
+                showNotification(`${completedCount} completed task(s) cleared!`, 'success');
+            }
+        }
+
+        // Render todos
+        function renderTodos() {
+            const todoList = document.getElementById('todo-list');
+            const emptyState = document.getElementById('empty-state');
+            
+            // Filter todos based on current filter
+            let filteredTodos = todos;
+            switch (currentFilter) {
+                case 'pending':
+                    filteredTodos = todos.filter(t => !t.completed);
+                    break;
+                case 'completed':
+                    filteredTodos = todos.filter(t => t.completed);
+                    break;
+            }
+
+            // Sort todos
+            const sortBy = document.getElementById('sortSelect').value;
+            filteredTodos = sortTodos(filteredTodos, sortBy);
+
+            if (filteredTodos.length === 0) {
+                todoList.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            todoList.innerHTML = filteredTodos.map(todo => `
+                <li class="todo-item ${todo.completed ? 'completed' : ''} ${todo.priority}-priority" data-id="${todo.id}">
+                    <div class="todo-main">
+                        <div class="todo-checkbox-wrapper">
+                            <input type="checkbox" class="todo-checkbox" ${todo.completed ? 'checked' : ''} onchange="toggleTodo(${todo.id})">
+                            <div class="checkbox-custom"></div>
+                        </div>
+                        <div class="todo-content">
+                            <div class="todo-text-wrapper">
+                                <span class="todo-text">${escapeHtml(todo.text)}</span>
+                                <input type="text" class="edit-input" value="${escapeHtml(todo.text)}" 
+                                       onkeypress="handleEditKeypress(event, ${todo.id})"
+                                       onblur="cancelEdit(${todo.id})">
+                            </div>
+                            <div class="todo-meta">
+                                <span class="todo-priority priority-${todo.priority}">
+                                    ${getPriorityIcon(todo.priority)} ${todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1)}
+                                </span>
+                                <span class="todo-date">${formatDate(todo.createdAt)}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="todo-actions">
+                        <button class="action-btn edit-btn" onclick="editTodo(${todo.id})" title="Edit task">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="action-btn delete-btn" onclick="deleteTodo(${todo.id})" title="Delete task">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </li>
+            `).join('');
+
+            // Animate todo items
+            animateTodoItems();
+        }
+
+        // Handle edit input keypress
+        function handleEditKeypress(event, id) {
+            if (event.key === 'Enter') {
+                saveEdit(id, event.target.value);
+            } else if (event.key === 'Escape') {
+                cancelEdit(id);
+            }
+        }
+
+        // Update statistics
+        function updateStats() {
+            const total = todos.length;
+            const completed = todos.filter(t => t.completed).length;
+            const pending = total - completed;
+
+            document.getElementById('totalTasks').textContent = total;
+            document.getElementById('completedTasks').textContent = completed;
+            document.getElementById('pendingTasks').textContent = pending;
+
+            // Update filter counts
+            document.getElementById('allCount').textContent = total;
+            document.getElementById('pendingCount').textContent = pending;
+            document.getElementById('completedCount').textContent = completed;
+
+            // Animate Stats Counters
+            animateCounter('totalTasks', total);
+            animateCounter('completedTasks', completed);
+            animateCounter('pendingTasks', pending);
+
+            // Update progress ring
+            updateProgressRing();
+
+            // Confetti if all tasks completed
+            if (total > 0 && completed === total) {
+                showConfetti();
+            }
+        }
+
+        // Save todos to localStorage
+        function saveTodos() {
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            let icon = 'ℹ️';
+            if (type === 'success') icon = '✅';
+            if (type === 'error') icon = '❌';
+            if (type === 'warning') icon = '⚠️';
+            notification.innerHTML = `<span style='margin-right:8px;'>${icon}</span>${message}`;
+            
+            // Style the notification
+            Object.assign(notification.style, {
+                position: 'fixed',
+                top: '20px',
+                right: '20px',
+                padding: '1rem 1.5rem',
+                borderRadius: '8px',
+                color: 'white',
+                fontWeight: '600',
+                zIndex: '10000',
+                transform: 'translateX(100%)',
+                transition: 'transform 0.3s ease',
+                maxWidth: '300px',
+                wordWrap: 'break-word',
+                fontSize: '1.1rem',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.15)'
+            });
+
+            // Set background color based on type
+            const colors = {
+                success: '#48bb78',
+                error: '#f56565',
+                info: '#667eea',
+                warning: '#ed8936'
+            };
+            notification.style.backgroundColor = colors[type] || colors.info;
+
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl + A: Focus input
+            if (e.ctrlKey && e.key === 'a' && !e.target.matches('input')) {
+                e.preventDefault();
+                document.getElementById('todo-input').focus();
+            }
+            
+            // Ctrl + L: Clear completed
+            if (e.ctrlKey && e.key === 'l') {
+                e.preventDefault();
+                clearCompleted();
+            }
+        });
+
+        // Animate Stats Counters
+        function animateCounter(id, target) {
+            let count = 0;
+            const el = document.getElementById(id);
+            const step = Math.ceil(target / 30);
+            const interval = setInterval(() => {
+                count += step;
+                if (count >= target) {
+                    count = target;
+                    clearInterval(interval);
+                }
+                el.textContent = count;
+            }, 20);
+        }
+
+        // Confetti Animation
+        function showConfetti() {
+            const confetti = document.getElementById('confetti-container');
+            confetti.style.display = 'block';
+            for (let i = 0; i < 80; i++) {
+                const div = document.createElement('div');
+                div.style.position = 'absolute';
+                div.style.left = Math.random() * 100 + 'vw';
+                div.style.top = '-10px';
+                div.style.width = '8px';
+                div.style.height = '16px';
+                div.style.background = `hsl(${Math.random()*360},80%,60%)`;
+                div.style.opacity = 0.8;
+                div.style.borderRadius = '3px';
+                div.style.transform = `rotate(${Math.random()*360}deg)`;
+                div.style.transition = 'top 1.5s cubic-bezier(.4,2,.6,1)';
+                confetti.appendChild(div);
+                setTimeout(() => {
+                    div.style.top = '100vh';
+                }, 10);
+                setTimeout(() => {
+                    div.remove();
+                    confetti.style.display = 'none';
+                }, 1700);
+            }
+        }
+
+        // Helper functions
+        function sortTodos(todos, sortBy) {
+            switch (sortBy) {
+                case 'oldest':
+                    return todos.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+                case 'priority':
+                    const priorityOrder = { 'high': 3, 'medium': 2, 'low': 1 };
+                    return todos.sort((a, b) => priorityOrder[b.priority] - priorityOrder[a.priority]);
+                case 'alphabetical':
+                    return todos.sort((a, b) => a.text.localeCompare(b.text));
+                default: // newest
+                    return todos.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+            }
+        }
+
+        function getPriorityIcon(priority) {
+            switch (priority) {
+                case 'high': return '<i class="fas fa-exclamation-triangle"></i>';
+                case 'medium': return '<i class="fas fa-exclamation-circle"></i>';
+                case 'low': return '<i class="fas fa-info-circle"></i>';
+                default: return '<i class="fas fa-circle"></i>';
+            }
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diff = now - date;
+            const minutes = Math.floor(diff / 60000);
+            const hours = Math.floor(diff / 3600000);
+            const days = Math.floor(diff / 86400000);
+
+            if (minutes < 1) return 'Just now';
+            if (minutes < 60) return `${minutes}m ago`;
+            if (hours < 24) return `${hours}h ago`;
+            if (days < 7) return `${days}d ago`;
+            return date.toLocaleDateString();
+        }
+
+        function animateTodoItems() {
+            const items = document.querySelectorAll('.todo-item');
+            items.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    item.style.transition = 'all 0.3s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+        }
+
+        function updateProgressRing() {
+            const total = todos.length;
+            const completed = todos.filter(t => t.completed).length;
+            const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+            
+            const circle = document.querySelector('.progress-ring-circle');
+            const radius = 50;
+            const circumference = 2 * Math.PI * radius;
+            const offset = circumference - (percentage / 100) * circumference;
+            
+            circle.style.strokeDasharray = circumference;
+            circle.style.strokeDashoffset = offset;
+            
+            document.getElementById('progress-percentage').textContent = `${percentage}%`;
+        }
+
+        // Add some sample todos for demo (remove in production)
+        if (todos.length === 0) {
+            const sampleTodos = [
+                { id: 1, text: "Welcome to TaskFlow! 🎉", completed: false, priority: 'high', createdAt: new Date().toISOString(), completedAt: null },
+                { id: 2, text: "Try adding a new task using the form above", completed: false, priority: 'medium', createdAt: new Date().toISOString(), completedAt: null },
+                { id: 3, text: "Click the checkbox to complete this task", completed: true, priority: 'low', createdAt: new Date().toISOString(), completedAt: new Date().toISOString() }
+            ];
+            
+            // Comment out the next two lines if you don't want sample todos
+            todos = sampleTodos;
+            saveTodos();
+        }
+    </script>
+</body>
+</html>

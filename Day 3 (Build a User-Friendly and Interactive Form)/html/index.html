@@ -1,24 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login in</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>SecureAuth - Advanced Login Form</title>
 </head>
 <body>
-    <div class="container">
-        <div class="Login-logo"></div>
-        <div class="Title">Sign In</div>
-        <div class="inputs">
-            <label>Email</label>
-            <input type="email" placeholder="Enter Your Email">
-            <label>Password</label>
-            <input type="password" placeholder="Enter Your Password">
-            <button>Sign up</button>
+    <div class="background-animation">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
         </div>
-
     </div>
-    
+
+    <div class="form-container">
+        <div class="form-wrapper">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h1 class="brand-name">SecureAuth</h1>
+                <p class="brand-tagline">Your secure gateway to digital world</p>
+            </div>
+
+            <!-- Form Toggle Buttons -->
+            <div class="form-toggle">
+                <button class="toggle-btn active" id="loginToggle">Sign In</button>
+                <button class="toggle-btn" id="registerToggle">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <form class="auth-form active" id="loginForm">
+                <div class="form-header">
+                    <h2>Welcome Back!</h2>
+                    <p>Please sign in to your account</p>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                        <label for="loginEmail">Email Address</label>
+                    </div>
+                    <div class="error-message" id="loginEmailError"></div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        <button type="button" class="password-toggle" id="loginPasswordToggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <label for="loginPassword">Password</label>
+                    </div>
+                    <div class="error-message" id="loginPasswordError"></div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Sign In</span>
+                    <div class="btn-loader">
+                        <div class="spinner"></div>
+                    </div>
+                </button>
+
+                <div class="social-login">
+                    <p>Or continue with</p>
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn google-btn">
+                            <i class="fab fa-google"></i>
+                            Google
+                        </button>
+                        <button type="button" class="social-btn facebook-btn">
+                            <i class="fab fa-facebook-f"></i>
+                            Facebook
+                        </button>
+                        <button type="button" class="social-btn github-btn">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Register Form -->
+            <form class="auth-form" id="registerForm">
+                <div class="form-header">
+                    <h2>Create Account</h2>
+                    <p>Join us today! It's quick and easy</p>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="firstName" placeholder="First name" required>
+                            <label for="firstName">First Name</label>
+                        </div>
+                        <div class="error-message" id="firstNameError"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="lastName"  placeholder="Last name" required>
+                            <label for="lastName">Last Name</label>
+                        </div>
+                        <div class="error-message" id="lastNameError"></div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="registerEmail" name="email" placeholder="Enter your email" required>
+                        <label for="registerEmail">Email Address</label>
+                    </div>
+                    <div class="error-message" id="registerEmailError"></div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-phone input-icon"></i>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        <label for="phone">Phone Number</label>
+                    </div>
+                    <div class="error-message" id="phoneError"></div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="registerPassword" name="password" placeholder="Create password" required>
+                        <button type="button" class="password-toggle" id="registerPasswordToggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <label for="registerPassword">Password</label>
+                    </div>
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="strength-bar">
+                            <div class="strength-fill"></div>
+                        </div>
+                        <span class="strength-text">Password strength</span>
+                    </div>
+                    <div class="error-message" id="registerPasswordError"></div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
+                        <label for="confirmPassword">Confirm Password</label>
+                    </div>
+                    <div class="error-message" id="confirmPasswordError"></div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span class="checkmark"></span>
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Create Account</span>
+                    <div class="btn-loader">
+                        <div class="spinner"></div>
+                    </div>
+                </button>
+
+                <div class="social-login">
+                    <p>Or sign up with</p>
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn google-btn">
+                            <i class="fab fa-google"></i>
+                            Google
+                        </button>
+                        <button type="button" class="social-btn facebook-btn">
+                            <i class="fab fa-facebook-f"></i>
+                            Facebook
+                        </button>
+                        <button type="button" class="social-btn github-btn">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <div class="success-animation">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 id="successTitle">Success!</h3>
+            <p id="successMessage">Your account has been created successfully.</p>
+            <button class="modal-btn" id="closeModal">Continue</button>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/script.js"></script>
 </body>
 </html>

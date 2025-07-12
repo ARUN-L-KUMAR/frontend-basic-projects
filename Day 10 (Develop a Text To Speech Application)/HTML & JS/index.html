@@ -3,32 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text To Speech</title>
-    <link rel="stylesheet" href="style.css">
+    <title>VoiceSync Pro - AI-Powered Text To Speech</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="container">
-        <h1>Text To Speech</h1>
-        <textarea id="textTospeak"></textarea>
-        <button onclick="speak()">Text to speak</button>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
     </div>
 
-    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                        <div class="sound-waves">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <h1>VoiceSync <span class="pro-badge">PRO</span></h1>
+                        <p class="tagline">AI-Powered Text to Natural Speech</p>
+                    </div>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="sessionsCount">247</span>
+                        <span class="stat-label">Sessions</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="wordsSpoken">12.5K</span>
+                        <span class="stat-label">Words Spoken</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Text Input Section -->
+            <section class="text-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-edit"></i> Your Text</h2>
+                    <div class="text-analytics">
+                        <span class="analytics-item">
+                            <i class="fas fa-font"></i>
+                            <span id="charCount">0</span> chars
+                        </span>
+                        <span class="analytics-item">
+                            <i class="fas fa-file-word"></i>
+                            <span id="wordCount">0</span> words
+                        </span>
+                        <span class="analytics-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="estimatedTime">0:00</span> duration
+                        </span>
+                    </div>
+                </div>
+
+                <div class="text-input-container">
+                    <div class="textarea-wrapper">
+                        <textarea 
+                            id="textToSpeak" 
+                            placeholder="Start typing or paste your text here... ✨ Experience natural AI speech synthesis with advanced voice controls!"
+                            maxlength="10000"
+                        ></textarea>
+                        <div class="textarea-tools">
+                            <button class="tool-btn" id="clearText" title="Clear all text">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            <button class="tool-btn" id="pasteText" title="Paste from clipboard">
+                                <i class="fas fa-paste"></i>
+                            </button>
+                            <button class="tool-btn" id="copyText" title="Copy text">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button class="tool-btn" id="downloadText" title="Download as file">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Samples -->
+                    <div class="sample-section">
+                        <h3><i class="fas fa-magic"></i> Quick Sample Texts</h3>
+                        <div class="sample-grid">
+                            <button class="sample-card" data-text="Welcome to VoiceSync Pro! Experience the next generation of text-to-speech technology with AI-powered natural voice synthesis, advanced customization options, and crystal-clear audio quality that brings your words to life.">
+                                <div class="sample-icon">🎙️</div>
+                                <div class="sample-content">
+                                    <h4>AI Welcome</h4>
+                                    <p>Professional introduction</p>
+                                </div>
+                            </button>
+                            <button class="sample-card" data-text="The quick brown fox jumps over the lazy dog. This pangram contains every letter of the English alphabet and serves as an excellent test for voice synthesis quality, pronunciation accuracy, and overall speech clarity.">
+                                <div class="sample-icon">🦊</div>
+                                <div class="sample-content">
+                                    <h4>Pangram Test</h4>
+                                    <p>Voice quality check</p>
+                                </div>
+                            </button>
+                            <button class="sample-card" data-text="Artificial Intelligence and Machine Learning are revolutionizing the way we interact with technology. Natural Language Processing enables computers to understand, interpret, and generate human language in ways that are both meaningful and contextually relevant.">
+                                <div class="sample-icon">🤖</div>
+                                <div class="sample-content">
+                                    <h4>Tech Article</h4>
+                                    <p>Technical content</p>
+                                </div>
+                            </button>
+                            <button class="sample-card" data-text="Once upon a time, in a digital realm where code and creativity converged, there existed a powerful tool that could transform written words into beautiful, natural-sounding speech, bridging the gap between text and human expression.">
+                                <div class="sample-icon">📚</div>
+                                <div class="sample-content">
+                                    <h4>Story Mode</h4>
+                                    <p>Narrative content</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Controls Section -->
+            <section class="controls-section">
+                <!-- Voice Settings -->
+                <div class="control-panel voice-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-user-alt"></i> Voice Configuration</h3>
+                        <button class="expand-btn" id="voiceExpandBtn">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="voice-selector">
+                            <label for="voiceSelect">
+                                <i class="fas fa-microphone"></i>
+                                Voice Selection
+                            </label>
+                            <select id="voiceSelect" class="modern-select">
+                                <option value="">🔄 Loading available voices...</option>
+                            </select>
+                        </div>
+
+                        <div class="voice-controls-grid">
+                            <div class="control-item">
+                                <label>
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    Speed <span id="rateValue" class="control-value">1.0x</span>
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" id="rateSlider" min="0.1" max="3" step="0.1" value="1" class="modern-slider">
+                                    <div class="slider-track"></div>
+                                </div>
+                            </div>
+
+                            <div class="control-item">
+                                <label>
+                                    <i class="fas fa-music"></i>
+                                    Pitch <span id="pitchValue" class="control-value">1.0</span>
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" id="pitchSlider" min="0" max="2" step="0.1" value="1" class="modern-slider">
+                                </div>
+                            </div>
+
+                            <div class="control-item">
+                                <label>
+                                    <i class="fas fa-volume-up"></i>
+                                    Volume <span id="volumeValue" class="control-value">100%</span>
+                                </label>
+                                <div class="slider-container">
+                                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1" class="modern-slider">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Voice Presets -->
+                        <div class="preset-section">
+                            <label><i class="fas fa-magic"></i> Quick Presets</label>
+                            <div class="preset-buttons">
+                                <button class="preset-btn" data-preset="natural">🎯 Natural</button>
+                                <button class="preset-btn" data-preset="fast">⚡ Fast Reader</button>
+                                <button class="preset-btn" data-preset="slow">🐢 Slow & Clear</button>
+                                <button class="preset-btn" data-preset="dramatic">🎭 Dramatic</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Playback Controls -->
+                <div class="control-panel playback-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-play-circle"></i> Playback Controls</h3>
+                    </div>
+                    <div class="panel-content">
+                        <div class="main-controls">
+                            <button class="control-btn primary-btn" id="playBtn">
+                                <i class="fas fa-play"></i>
+                                <span>Speak</span>
+                            </button>
+                            <button class="control-btn secondary-btn" id="pauseBtn" disabled>
+                                <i class="fas fa-pause"></i>
+                                <span>Pause</span>
+                            </button>
+                            <button class="control-btn secondary-btn" id="resumeBtn" disabled>
+                                <i class="fas fa-play"></i>
+                                <span>Resume</span>
+                            </button>
+                            <button class="control-btn danger-btn" id="stopBtn" disabled>
+                                <i class="fas fa-stop"></i>
+                                <span>Stop</span>
+                            </button>
+                        </div>
+
+                        <!-- Progress Section -->
+                        <div class="progress-section">
+                            <div class="progress-bar-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                    <div class="progress-indicator" id="progressIndicator"></div>
+                                </div>
+                            </div>
+                            <div class="progress-info">
+                                <span class="time-display">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span id="currentTime">00:00</span>
+                                </span>
+                                <span class="time-separator">/</span>
+                                <span class="time-display">
+                                    <i class="fas fa-clock"></i>
+                                    <span id="totalTime">00:00</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Features -->
+                <div class="control-panel features-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-cogs"></i> Advanced Features</h3>
+                        <button class="expand-btn" id="featuresExpandBtn">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="feature-grid">
+                            <button class="feature-btn" id="saveAudioBtn">
+                                <i class="fas fa-download"></i>
+                                <span>Export Audio</span>
+                            </button>
+                            <button class="feature-btn" id="highlightTextBtn">
+                                <i class="fas fa-highlighter"></i>
+                                <span>Text Highlight</span>
+                            </button>
+                            <button class="feature-btn" id="repeatModeBtn">
+                                <i class="fas fa-redo"></i>
+                                <span>Repeat Mode</span>
+                            </button>
+                            <button class="feature-btn" id="settingsBtn">
+                                <i class="fas fa-sliders-h"></i>
+                                <span>Settings</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Status and Visualizer -->
+        <section class="status-section">
+            <div class="status-display" id="statusDisplay">
+                <div class="status-content">
+                    <div class="status-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="status-text">
+                        <span id="statusText">Ready to transform your text into natural speech</span>
+                        <div class="status-progress" id="statusProgress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audio Visualizer -->
+            <div class="visualizer-container" id="audioVisualizer">
+                <div class="visualizer-header">
+                    <span>Audio Visualization</span>
+                    <button class="visualizer-toggle" id="visualizerToggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="visualizer-content">
+                    <div class="wave-bars">
+                        <div class="bar" style="--delay: 0s"></div>
+                        <div class="bar" style="--delay: 0.1s"></div>
+                        <div class="bar" style="--delay: 0.2s"></div>
+                        <div class="bar" style="--delay: 0.3s"></div>
+                        <div class="bar" style="--delay: 0.4s"></div>
+                        <div class="bar" style="--delay: 0.5s"></div>
+                        <div class="bar" style="--delay: 0.6s"></div>
+                        <div class="bar" style="--delay: 0.7s"></div>
+                        <div class="bar" style="--delay: 0.8s"></div>
+                        <div class="bar" style="--delay: 0.9s"></div>
+                        <div class="bar" style="--delay: 1s"></div>
+                        <div class="bar" style="--delay: 1.1s"></div>
+                    </div>
+                    <div class="frequency-display">
+                        <span class="freq-label">Low</span>
+                        <span class="freq-label">Mid</span>
+                        <span class="freq-label">High</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3><i class="fas fa-cog"></i> Advanced Settings</h3>
+                <button class="modal-close" id="closeSettings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-tabs">
+                    <button class="tab-btn active" data-tab="general">General</button>
+                    <button class="tab-btn" data-tab="voice">Voice</button>
+                    <button class="tab-btn" data-tab="advanced">Advanced</button>
+                </div>
+                
+                <div class="tab-content active" id="general-tab">
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <input type="checkbox" id="autoPlayback" class="modern-checkbox">
+                            <span class="checkmark"></span>
+                            Auto-play on text change
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <input type="checkbox" id="wordHighlight" checked class="modern-checkbox">
+                            <span class="checkmark"></span>
+                            Highlight words while speaking
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <input type="checkbox" id="saveSettings" checked class="modern-checkbox">
+                            <span class="checkmark"></span>
+                            Remember my preferences
+                        </label>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="voice-tab">
+                    <div class="setting-group">
+                        <label>Voice Enhancement</label>
+                        <select id="voiceEnhancement" class="modern-select">
+                            <option value="none">None</option>
+                            <option value="clarity">Enhanced Clarity</option>
+                            <option value="warmth">Warm Tone</option>
+                            <option value="professional">Professional</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label>Language Accent</label>
+                        <select id="accentSelect" class="modern-select">
+                            <option value="neutral">Neutral</option>
+                            <option value="american">American</option>
+                            <option value="british">British</option>
+                            <option value="australian">Australian</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="advanced-tab">
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <input type="checkbox" id="ssmlSupport" class="modern-checkbox">
+                            <span class="checkmark"></span>
+                            Enable SSML support
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <input type="checkbox" id="pauseOnPunctuation" class="modern-checkbox">
+                            <span class="checkmark"></span>
+                            Natural pauses on punctuation
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="resetSettings">Reset to Default</button>
+                <button class="btn-primary" id="saveModalSettings">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification System -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <p>Initializing VoiceSync Pro...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-<script>
- var speech = new SpeechSynthesisUtterance();
-
-function speak() {
-    speech.text = textTospeak.value;
-
-    // Setting values within valid ranges
-    speech.rate = 1;    // Adjust as needed
-    speech.volume = 5;  // Adjust as needed
-    speech.pitch = 1;   // Adjust as needed
-
-    // Corrected speechSynthesis instance
-    window.speechSynthesis.speak(speech);
-}
-
-</script>
 </html>

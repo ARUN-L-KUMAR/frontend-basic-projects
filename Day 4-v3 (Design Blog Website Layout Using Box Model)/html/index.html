@@ -1,23 +1,227 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Box Model</title>
-    <style>
-        div{
-            border: 5px solid red;
-            height: 500px;
-            width: 500px;
-            margin: 20px;
-            padding: 20px;
-            text-align: justify;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Box Model Demo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-         Vitae eligendi ea itaque veniam minima architecto beatae repellat sed deleniti 
-         perspiciatis dicta enim consequatur expedita omnis aperiam, officia dolorum voluptatem 
-         deserunt!</div>
-    
+    <div class="container">
+        <!-- Header -->
+        <header class="header fade-in">
+            <h1><i class="fas fa-cube"></i> Interactive Box Model Demo</h1>
+            <p>Explore and understand the CSS Box Model with real-time visualization and interactive controls</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Demo Section -->
+            <section class="demo-section slide-in">
+                <h2>
+                    <i class="fas fa-eye"></i>
+                    Live Box Model Visualization
+                </h2>
+
+                <div class="box-container">
+                    <div class="demo-box" id="demoBox">
+                        <div class="box-content">
+                            <i class="fas fa-magic"></i>
+                            <br>
+                            Interactive Box Model Demo
+                            <br>
+                            <small>Hover and click to explore!</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box Model Layers -->
+                <div class="box-model-viz">
+                    <h4 style="margin-bottom: 1rem; color: var(--text-primary);">
+                        <i class="fas fa-layer-group"></i>
+                        Box Model Layers
+                    </h4>
+                    <div class="box-layers">
+                        <div class="layer layer-margin tooltip" data-tooltip="Margin creates space outside the border">
+                            <div class="layer-label">
+                                <i class="fas fa-expand-arrows-alt" style="color: var(--error);"></i>
+                                Margin (Outer Space)
+                            </div>
+                            <div class="layer layer-border tooltip" data-tooltip="Border wraps around padding and content">
+                                <div class="layer-label">
+                                    <i class="fas fa-square" style="color: var(--warning);"></i>
+                                    Border (Frame)
+                                </div>
+                                <div class="layer layer-padding tooltip" data-tooltip="Padding creates space inside the border">
+                                    <div class="layer-label">
+                                        <i class="fas fa-compress-arrows-alt" style="color: var(--success);"></i>
+                                        Padding (Inner Space)
+                                    </div>
+                                    <div class="layer layer-content">
+                                        <div class="layer-label">
+                                            <i class="fas fa-file-alt" style="color: var(--primary);"></i>
+                                            Content (Actual Content)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Controls Panel -->
+            <aside class="controls-panel slide-in">
+                <h3>
+                    <i class="fas fa-sliders-h"></i>
+                    Box Model Controls
+                </h3>
+
+                <!-- Margin Controls -->
+                <div class="control-group">
+                    <label class="control-label">
+                        <i class="fas fa-expand-arrows-alt" style="color: var(--error);"></i>
+                        Margin
+                    </label>
+                    <input type="range" class="control-range" id="marginRange" min="0" max="50" value="20">
+                    <input type="number" class="control-input" id="marginInput" min="0" max="100" value="20">
+                </div>
+
+                <!-- Border Controls -->
+                <div class="control-group">
+                    <label class="control-label">
+                        <i class="fas fa-square" style="color: var(--warning);"></i>
+                        Border Width
+                    </label>
+                    <input type="range" class="control-range" id="borderRange" min="0" max="20" value="5">
+                    <input type="number" class="control-input" id="borderInput" min="0" max="50" value="5">
+                </div>
+
+                <!-- Padding Controls -->
+                <div class="control-group">
+                    <label class="control-label">
+                        <i class="fas fa-compress-arrows-alt" style="color: var(--success);"></i>
+                        Padding
+                    </label>
+                    <input type="range" class="control-range" id="paddingRange" min="0" max="50" value="20">
+                    <input type="number" class="control-input" id="paddingInput" min="0" max="100" value="20">
+                </div>
+
+                <!-- Dimensions Controls -->
+                <div class="control-group">
+                    <label class="control-label">
+                        <i class="fas fa-rulers" style="color: var(--primary);"></i>
+                        Width
+                    </label>
+                    <input type="range" class="control-range" id="widthRange" min="200" max="500" value="300">
+                    <input type="number" class="control-input" id="widthInput" min="100" max="800" value="300">
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">
+                        <i class="fas fa-arrows-alt-v" style="color: var(--primary);"></i>
+                        Height
+                    </label>
+                    <input type="range" class="control-range" id="heightRange" min="100" max="400" value="200">
+                    <input type="number" class="control-input" id="heightInput" min="50" max="600" value="200">
+                </div>
+
+                <!-- Color Controls -->
+                <div class="control-group">
+                    <label class="control-label">
+                        <i class="fas fa-palette" style="color: var(--accent);"></i>
+                        Background Color
+                    </label>
+                    <input type="color" class="control-input color-input" id="bgColorInput" value="#6366f1">
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">
+                        <i class="fas fa-paint-brush" style="color: var(--accent);"></i>
+                        Border Color
+                    </label>
+                    <input type="color" class="control-input color-input" id="borderColorInput" value="#ec4899">
+                </div>
+
+                <!-- Preset Buttons -->
+                <div class="preset-buttons">
+                    <button class="preset-btn" onclick="applyPreset('compact')">
+                        <i class="fas fa-compress"></i> Compact
+                    </button>
+                    <button class="preset-btn" onclick="applyPreset('spacious')">
+                        <i class="fas fa-expand"></i> Spacious
+                    </button>
+                    <button class="preset-btn" onclick="applyPreset('minimal')">
+                        <i class="fas fa-minus"></i> Minimal
+                    </button>
+                    <button class="preset-btn" onclick="applyPreset('bold')">
+                        <i class="fas fa-bold"></i> Bold
+                    </button>
+                </div>
+
+                <!-- Values Display -->
+                <div class="values-display">
+                    <h4 style="margin-bottom: 0.75rem; font-size: 0.9rem; color: var(--text-secondary);">
+                        Current Values
+                    </h4>
+                    <div class="values-grid" id="valuesGrid">
+                        <div class="value-item">
+                            <span class="value-label">Margin:</span>
+                            <span class="value-number" id="marginValue">20px</span>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-label">Border:</span>
+                            <span class="value-number" id="borderValue">5px</span>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-label">Padding:</span>
+                            <span class="value-number" id="paddingValue">20px</span>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-label">Content:</span>
+                            <span class="value-number" id="contentValue">300×200px</span>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-label">Total Width:</span>
+                            <span class="value-number" id="totalWidthValue">390px</span>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-label">Total Height:</span>
+                            <span class="value-number" id="totalHeightValue">290px</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- CSS Code Display -->
+        <section class="code-section fade-in">
+            <div class="code-header">
+                <h3>
+                    <i class="fas fa-code"></i>
+                    Generated CSS Code
+                </h3>
+                <button class="copy-btn" onclick="copyCSS()">
+                    <i class="fas fa-copy"></i>
+                    Copy CSS
+                </button>
+            </div>
+            <div class="code-block" id="codeBlock">
+                <div class="code-line"><span class="code-comment">/* Generated CSS for your box model */</span></div>
+                <div class="code-line">.demo-element {</div>
+                <div class="code-line">  <span class="code-property">width</span>: <span class="code-value">300px</span>;</div>
+                <div class="code-line">  <span class="code-property">height</span>: <span class="code-value">200px</span>;</div>
+                <div class="code-line">  <span class="code-property">margin</span>: <span class="code-value">20px</span>;</div>
+                <div class="code-line">  <span class="code-property">border</span>: <span class="code-value">5px solid #ec4899</span>;</div>
+                <div class="code-line">  <span class="code-property">padding</span>: <span class="code-value">20px</span>;</div>
+                <div class="code-line">  <span class="code-property">background-color</span>: <span class="code-value">#6366f1</span>;</div>
+                <div class="code-line">}</div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../js/script.js"></script>
 </body>
 </html>

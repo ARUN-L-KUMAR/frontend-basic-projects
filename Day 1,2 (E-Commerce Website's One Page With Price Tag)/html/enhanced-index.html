@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/enhanced-style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- <link rel="manifest" href="../manifest.json"> --> <!-- Disabled for file:// protocol compatibility -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="author" content="Arun L Kumar">
+    <meta name="keywords" content="e-commerce, fashion, shopping, premium, lifestyle">
+    <meta property="og:title" content="StyleHub - Modern E-Commerce Store">
+    <meta property="og:description" content="Premium quality clothing and accessories for the modern lifestyle">
+    <meta property="og:image" content="../image/og-image.jpg">
+    <meta property="og:url" content="https://stylehub.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>StyleHub - Modern E-Commerce Store | Premium Fashion & Lifestyle</title>
+    <meta name="description" content="Premium quality clothing and accessories for the modern lifestyle. Discover exclusive fashion collections with cutting-edge shopping experience.">
+    <link rel="icon" type="image/x-icon" href="../image/favicon.ico">
+    <link rel="apple-touch-icon" href="../image/apple-touch-icon.png">
+</head>
+<body>
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <!-- Cursor Effect -->
+    <div class="cursor-effect" id="cursorEffect"></div>
+
+    <!-- Page Transition -->
+    <div class="page-transition" id="pageTransition">
+        <div class="transition-logo">
+            <i class="fas fa-shopping-bag"></i>
+            <span>StyleHub</span>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <div class="loading-text">Loading StyleHub...</div>
+        </div>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="floating-icon" style="--delay: 0s;"><i class="fas fa-star"></i></div>
+        <div class="floating-icon" style="--delay: 1s;"><i class="fas fa-heart"></i></div>
+        <div class="floating-icon" style="--delay: 2s;"><i class="fas fa-shopping-cart"></i></div>
+        <div class="floating-icon" style="--delay: 3s;"><i class="fas fa-gem"></i></div>
+        <div class="floating-icon" style="--delay: 4s;"><i class="fas fa-crown"></i></div>
+        <div class="floating-icon" style="--delay: 5s;"><i class="fas fa-gift"></i></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>StyleHub</span>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" placeholder="Search products..." class="search-input" id="searchInput">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <div class="search-suggestions" id="searchSuggestions"></div>
+            </div>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#products" class="nav-link">Shop</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Wishlist -->
+                <div class="wishlist-icon">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count">0</span>
+                </div>
+                
+                <!-- Cart -->
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-slider">
+                <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop&q=80')">
+                    <div class="hero-content">
+                        <span class="hero-badge">New Collection 2025</span>
+                        <h1>Discover Your Style</h1>
+                        <p>Premium quality clothing and accessories for the modern lifestyle</p>
+                        <div class="hero-buttons">
+                            <button class="cta-btn primary" id="shopNowBtn">Shop Now</button>
+                            <button class="cta-btn secondary" id="viewCollectionBtn">View Collection</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1920&h=1080&fit=crop&q=80')">
+                    <div class="hero-content">
+                        <span class="hero-badge">Limited Edition</span>
+                        <h1>Exclusive Fashion</h1>
+                        <p>Handpicked designer pieces for the discerning customer</p>
+                        <div class="hero-buttons">
+                            <button class="cta-btn primary" id="exploreBtn">Explore</button>
+                            <button class="cta-btn secondary" id="learnMoreBtn">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-controls">
+                <button class="hero-nav prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="hero-nav next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="hero-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number" data-target="50000">0</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-tshirt"></i></div>
+                    <div class="stat-number" data-target="10000">0</div>
+                    <div class="stat-label">Products Sold</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-star"></i></div>
+                    <div class="stat-number" data-target="4.9">0</div>
+                    <div class="stat-label">Rating</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-shipping-fast"></i></div>
+                    <div class="stat-number" data-target="24">0</div>
+                    <div class="stat-label">Hour Delivery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="clothing">Clothing</button>
+                <button class="filter-btn" data-filter="shoes">Shoes</button>
+                <button class="filter-btn" data-filter="accessories">Accessories</button>
+            </div>
+            
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop" alt="Premium Cotton Shirt" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="overlay-btn wishlist-btn" data-id="1">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="overlay-btn quick-view-btn" data-id="1">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="overlay-btn compare-btn" data-id="1">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                        <span class="product-badge new">New</span>
+                        <span class="product-discount">-20%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Clothing</div>
+                        <h3 class="product-title">Premium Cotton Shirt</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-text">(4.5)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$39.99</span>
+                            <span class="original-price">$49.99</span>
+                        </div>
+                        <div class="product-variants">
+                            <div class="color-options">
+                                <span class="color-option active" style="background-color: #3498db;"></span>
+                                <span class="color-option" style="background-color: #e74c3c;"></span>
+                                <span class="color-option" style="background-color: #2ecc71;"></span>
+                            </div>
+                            <div class="size-options">
+                                <span class="size-option">S</span>
+                                <span class="size-option active">M</span>
+                                <span class="size-option">L</span>
+                                <span class="size-option">XL</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="1">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-category="shoes">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop" alt="Athletic Running Shoes" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="overlay-btn wishlist-btn" data-id="2">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="overlay-btn quick-view-btn" data-id="2">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="overlay-btn compare-btn" data-id="2">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                        <span class="product-badge bestseller">Bestseller</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Shoes</div>
+                        <h3 class="product-title">Athletic Running Shoes</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-text">(5.0)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$89.99</span>
+                        </div>
+                        <div class="product-variants">
+                            <div class="color-options">
+                                <span class="color-option active" style="background-color: #000;"></span>
+                                <span class="color-option" style="background-color: #fff; border: 1px solid #ddd;"></span>
+                                <span class="color-option" style="background-color: #e74c3c;"></span>
+                            </div>
+                            <div class="size-options">
+                                <span class="size-option">7</span>
+                                <span class="size-option">8</span>
+                                <span class="size-option active">9</span>
+                                <span class="size-option">10</span>
+                                <span class="size-option">11</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="2">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop" alt="Designer Graphic T-Shirt" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="overlay-btn wishlist-btn" data-id="3">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="overlay-btn quick-view-btn" data-id="3">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="overlay-btn compare-btn" data-id="3">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                        <span class="product-badge sale">Sale</span>
+                        <span class="product-discount">-30%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Clothing</div>
+                        <h3 class="product-title">Designer Graphic T-Shirt</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-text">(4.2)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$24.99</span>
+                            <span class="original-price">$34.99</span>
+                        </div>
+                        <div class="product-variants">
+                            <div class="color-options">
+                                <span class="color-option active" style="background-color: #34495e;"></span>
+                                <span class="color-option" style="background-color: #e74c3c;"></span>
+                                <span class="color-option" style="background-color: #f39c12;"></span>
+                            </div>
+                            <div class="size-options">
+                                <span class="size-option">XS</span>
+                                <span class="size-option active">S</span>
+                                <span class="size-option">M</span>
+                                <span class="size-option">L</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="3">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-category="accessories">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop" alt="Luxury Smartwatch" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="overlay-btn wishlist-btn" data-id="4">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="overlay-btn quick-view-btn" data-id="4">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="overlay-btn compare-btn" data-id="4">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                        <span class="product-badge limited">Limited</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Accessories</div>
+                        <h3 class="product-title">Luxury Smartwatch</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-text">(4.7)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$299.99</span>
+                        </div>
+                        <div class="product-variants">
+                            <div class="color-options">
+                                <span class="color-option active" style="background-color: #000;"></span>
+                                <span class="color-option" style="background-color: #95a5a6;"></span>
+                                <span class="color-option" style="background-color: #f39c12;"></span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="4">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card" data-category="accessories">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop" alt="Wireless Bluetooth Headphones" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="overlay-btn wishlist-btn" data-id="5">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="overlay-btn quick-view-btn" data-id="5">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="overlay-btn compare-btn" data-id="5">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                        <span class="product-badge trending">Trending</span>
+                        <span class="product-discount">-25%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Accessories</div>
+                        <h3 class="product-title">Wireless Bluetooth Headphones</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-text">(4.8)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$149.99</span>
+                            <span class="original-price">$199.99</span>
+                        </div>
+                        <div class="product-variants">
+                            <div class="color-options">
+                                <span class="color-option active" style="background-color: #000;"></span>
+                                <span class="color-option" style="background-color: #fff; border: 1px solid #ddd;"></span>
+                                <span class="color-option" style="background-color: #3498db;"></span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="5">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card" data-category="accessories">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop" alt="Leather Crossbody Bag" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="overlay-btn wishlist-btn" data-id="6">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="overlay-btn quick-view-btn" data-id="6">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="overlay-btn compare-btn" data-id="6">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                        <span class="product-badge new">New</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Accessories</div>
+                        <h3 class="product-title">Leather Crossbody Bag</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-text">(4.6)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$79.99</span>
+                        </div>
+                        <div class="product-variants">
+                            <div class="color-options">
+                                <span class="color-option active" style="background-color: #8B4513;"></span>
+                                <span class="color-option" style="background-color: #000;"></span>
+                                <span class="color-option" style="background-color: #654321;"></span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="6">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop" alt="Casual Denim Jeans" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="overlay-btn wishlist-btn" data-id="7">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="overlay-btn quick-view-btn" data-id="7">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="overlay-btn compare-btn" data-id="7">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                        <span class="product-badge sale">Sale</span>
+                        <span class="product-discount">-25%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Clothing</div>
+                        <h3 class="product-title">Casual Denim Jeans</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-text">(4.3)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$59.99</span>
+                            <span class="original-price">$79.99</span>
+                        </div>
+                        <div class="product-variants">
+                            <div class="color-options">
+                                <span class="color-option active" style="background-color: #4169E1;"></span>
+                                <span class="color-option" style="background-color: #000080;"></span>
+                                <span class="color-option" style="background-color: #36454F;"></span>
+                            </div>
+                            <div class="size-options">
+                                <span class="size-option">28</span>
+                                <span class="size-option active">30</span>
+                                <span class="size-option">32</span>
+                                <span class="size-option">34</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="7">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card" data-category="accessories">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop" alt="Minimalist Sunglasses" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="overlay-btn wishlist-btn" data-id="8">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="overlay-btn quick-view-btn" data-id="8">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="overlay-btn compare-btn" data-id="8">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                        <span class="product-badge trending">Trending</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Accessories</div>
+                        <h3 class="product-title">Minimalist Sunglasses</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-text">(4.4)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$45.99</span>
+                        </div>
+                        <div class="product-variants">
+                            <div class="color-options">
+                                <span class="color-option active" style="background-color: #000;"></span>
+                                <span class="color-option" style="background-color: #8B4513;"></span>
+                                <span class="color-option" style="background-color: #708090;"></span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="8">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i>
+                    Load More Products
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Product Showcase -->
+    <section class="product-showcase-3d">
+        <div class="container">
+            <h2 class="section-title">3D Product Experience</h2>
+            <p style="text-align: center; opacity: 0.9; margin-bottom: 40px;">Interact with our products in stunning 3D - hover to explore all angles</p>
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <div class="product-3d-container">
+                        <div class="product-3d-model" data-product="shirt">
+                            <div class="product-3d-face front">
+                                <img src="../image/shirt1.jpg" alt="Shirt Front">
+                            </div>
+                            <div class="product-3d-face back">
+                                <img src="../image/shirt2.webp" alt="Shirt Back">
+                            </div>
+                            <div class="product-3d-face left">
+                                <img src="../image/shirt1.jpg" alt="Shirt Left Side" style="filter: hue-rotate(15deg);">
+                            </div>
+                            <div class="product-3d-face right">
+                                <img src="../image/shirt2.webp" alt="Shirt Right Side" style="filter: hue-rotate(-15deg);">
+                            </div>
+                            <div class="product-3d-face top">
+                                <img src="../image/shirt1.jpg" alt="Shirt Top View" style="filter: brightness(1.2) contrast(0.8);">
+                            </div>
+                            <div class="product-3d-face bottom">
+                                <img src="../image/shirt2.webp" alt="Shirt Bottom View" style="filter: brightness(0.8) contrast(1.2);">
+                            </div>
+                        </div>
+                        <div class="product-3d-info">
+                            <h3>Premium Cotton Shirt</h3>
+                            <p>Hover to rotate and explore every angle of this premium cotton shirt with soft texture and perfect fit</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-item">
+                    <div class="product-3d-container">
+                        <div class="product-3d-model" data-product="shoe">
+                            <div class="product-3d-face front">
+                                <img src="../image/shoe.jpg" alt="Shoe Front">
+                            </div>
+                            <div class="product-3d-face back">
+                                <img src="../image/shoe2.jpg" alt="Shoe Back">
+                            </div>
+                            <div class="product-3d-face left">
+                                <img src="../image/Shoe3.jpg" alt="Shoe Left Side">
+                            </div>
+                            <div class="product-3d-face right">
+                                <img src="../image/Shoe3.jpg" alt="Shoe Right Side" style="transform: scaleX(-1);">
+                            </div>
+                            <div class="product-3d-face top">
+                                <img src="../image/shoe.jpg" alt="Shoe Top View" style="filter: brightness(1.3) contrast(0.9);">
+                            </div>
+                            <div class="product-3d-face bottom">
+                                <img src="../image/shoe2.jpg" alt="Shoe Bottom View" style="filter: brightness(0.7) contrast(1.3);">
+                            </div>
+                        </div>
+                        <div class="product-3d-info">
+                            <h3>Athletic Running Shoes</h3>
+                            <p>Interactive 3D preview showcasing the advanced cushioning technology and ergonomic design</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-item">
+                    <div class="product-3d-container">
+                        <div class="product-3d-model" data-product="tshirt">
+                            <div class="product-3d-face front">
+                                <img src="../image/T-shirt.jpg" alt="T-Shirt Front">
+                            </div>
+                            <div class="product-3d-face back">
+                                <img src="../image/s-half-sleeve-printed.webp" alt="T-Shirt Back">
+                            </div>
+                            <div class="product-3d-face left">
+                                <img src="../image/T-shirt.jpg" alt="T-Shirt Left Side" style="filter: hue-rotate(10deg);">
+                            </div>
+                            <div class="product-3d-face right">
+                                <img src="../image/s-half-sleeve-printed.webp" alt="T-Shirt Right Side" style="filter: hue-rotate(-10deg);">
+                            </div>
+                            <div class="product-3d-face top">
+                                <img src="../image/T-shirt.jpg" alt="T-Shirt Top View" style="filter: brightness(1.1) contrast(0.9);">
+                            </div>
+                            <div class="product-3d-face bottom">
+                                <img src="../image/s-half-sleeve-printed.webp" alt="T-Shirt Bottom View" style="filter: brightness(0.9) contrast(1.1);">
+                            </div>
+                        </div>
+                        <div class="product-3d-info">
+                            <h3>Designer Graphic T-Shirt</h3>
+                            <p>Trendy graphic design with premium quality fabric and comfortable fit for everyday wear</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Features Section -->
+    <section class="interactive-features">
+        <div class="container">
+            <h2 class="section-title">Interactive Features</h2>
+            <div class="features-grid">
+                <div class="feature-card interactive-card">
+                    <div class="card-icon">
+                        <i class="fas fa-vr-cardboard"></i>
+                    </div>
+                    <h3>Virtual Try-On</h3>
+                    <p>See how products look on you with AR technology</p>
+                    <button class="feature-btn">Try Now</button>
+                </div>
+                <div class="feature-card interactive-card">
+                    <div class="card-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>3D Product View</h3>
+                    <p>Rotate and zoom to examine every detail</p>
+                    <button class="feature-btn">Explore</button>
+                </div>
+                <div class="feature-card interactive-card">
+                    <div class="card-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Color Customizer</h3>
+                    <p>Customize colors and materials in real-time</p>
+                    <button class="feature-btn">Customize</button>
+                </div>
+                <div class="feature-card interactive-card">
+                    <div class="card-icon">
+                        <i class="fas fa-ruler"></i>
+                    </div>
+                    <h3>Size Guide</h3>
+                    <p>Interactive size calculator for perfect fit</p>
+                    <button class="feature-btn">Calculate</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <div class="fab-container">
+            <button class="fab main-fab" id="mainFab">
+                <i class="fas fa-plus"></i>
+            </button>
+            <div class="fab-options">
+                <button class="fab option-fab" data-tooltip="Quick Order">
+                    <i class="fas fa-bolt"></i>
+                </button>
+                <button class="fab option-fab" data-tooltip="Size Guide">
+                    <i class="fas fa-ruler"></i>
+                </button>
+                <button class="fab option-fab" data-tooltip="Help">
+                    <i class="fas fa-question"></i>
+                </button>
+                <button class="fab option-fab" data-tooltip="Share">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification System -->
+    <div class="notification-container" id="notificationContainer">
+        <!-- Notifications will be dynamically added here -->
+    </div>
+
+    <!-- Cursor Effect -->
+    <div class="cursor-effect" id="cursorEffect"></div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition" id="pageTransition">
+        <div class="transition-logo">
+            <i class="fas fa-shopping-bag"></i>
+            <span>StyleHub</span>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About StyleHub</h2>
+                    <p class="about-description">
+                        Welcome to StyleHub, your premium destination for modern fashion and lifestyle products. 
+                        We curate the finest collection of clothing, shoes, and accessories to help you express 
+                        your unique style with confidence.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h4>Premium Quality</h4>
+                            <p>Handpicked products from trusted brands worldwide</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <h4>Fast Delivery</h4>
+                            <p>Express shipping with 24-hour delivery guarantee</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h4>24/7 Support</h4>
+                            <p>Round-the-clock customer service assistance</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="floating-card">
+                        <div class="card-3d">
+                            <div class="card-front">
+                                <i class="fas fa-shopping-bag"></i>
+                                <h3>StyleHub</h3>
+                            </div>
+                            <div class="card-back">
+                                <p>Premium Fashion Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Free Shipping</h3>
+                    <p>Free shipping on orders over $50</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-undo-alt"></i>
+                    </div>
+                    <h3>Easy Returns</h3>
+                    <p>30-day return policy with no questions asked</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Payment</h3>
+                    <p>100% secure payment with SSL encryption</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Quality Guarantee</h3>
+                    <p>Premium quality products with warranty</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card active">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Amazing quality and fast delivery! I'm completely satisfied with my purchase."</p>
+                        <div class="testimonial-author">
+                            <img src="../image/testimonial1.jpg" alt="Customer" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiNjY2MiLz4KPGNpcmNsZSBjeD0iMzAiIGN5PSIyNSIgcj0iMTAiIGZpbGw9IiNmZmYiLz4KPHBhdGggZD0iTTEwIDUwQzEwIDQwIDIwIDM1IDMwIDM1UzUwIDQwIDUwIDUwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMyIvPgo8L3N2Zz4K'">
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <span>Fashion Enthusiast</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Exceptional service and beautiful products. StyleHub has become my go-to store!"</p>
+                        <div class="testimonial-author">
+                            <img src="../image/testimonial2.jpg" alt="Customer" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiNjY2MiLz4KPGNpcmNsZSBjeD0iMzAiIGN5PSIyNSIgcj0iMTAiIGZpbGw9IiNmZmYiLz4KPHBhdGggZD0iTTEwIDUwQzEwIDQwIDIwIDM1IDMwIDM1UzUwIDQwIDUwIDUwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMyIvPgo8L3N2Zz4K'">
+                            <div class="author-info">
+                                <h4>Mike Chen</h4>
+                                <span>Style Blogger</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The quality is outstanding and the customer service is top-notch. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                            <img src="../image/testimonial3.jpg" alt="Customer" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1zbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiNjY2MiLz4KPGNpcmNsZSBjeD0iMzAiIGN5PSIyNSIgcj0iMTAiIGZpbGw9IiNmZmYiLz4KPHBhdGggZD0iTTEwIDUwQzEwIDQwIDIwIDM1IDMwIDM1UzUwIDQwIDUwIDUwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMyIvPgo8L3N2Zz4K'">
+                            <div class="author-info">
+                                <h4>Emma Davis</h4>
+                                <span>Regular Customer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-controls">
+                <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+91-8778929845</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>arunkumar582004@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>LinkedIn</h4>
+                                <p><a href="https://linkedin.com/in/arun-l-kumar" target="_blank">Arun L Kumar</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>GitHub</h4>
+                                <p><a href="https://github.com/arun-l-kumar" target="_blank">arun-l-kumar</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Your Phone">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="form-group">
+                            <select name="subject" required>
+                                <option value="">Select Subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Customer Support</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What is your return policy?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a 30-day return policy for all unused items in original packaging. Simply contact our customer service team to initiate a return.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How long does shipping take?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Standard shipping takes 3-5 business days, while express shipping delivers within 24 hours for orders placed before 2 PM.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Do you offer international shipping?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we ship worldwide! International shipping typically takes 7-14 business days depending on your location.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Are your payment methods secure?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We use SSL encryption and accept all major credit cards, PayPal, and other secure payment methods.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How can I track my order?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Once your order ships, you'll receive a tracking number via email. You can also track your order in your account dashboard.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What if I need help with sizing?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Check our detailed size guide on each product page, or contact our customer service team for personalized sizing assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Partners Section -->
+    <section class="partners-section">
+        <div class="container">
+            <h2 class="section-title">Our Brand Partners</h2>
+            <p class="partners-subtitle">Trusted by leading fashion brands worldwide</p>
+            <div class="partners-slider">
+                <div class="partner-logo" data-aos="fade-up" data-aos-delay="100">
+                    <div class="partner-card">
+                        <img src="../image/Nike Logo.jpeg" alt="Nike">
+                        <span class="partner-name">Nike</span>
+                    </div>
+                </div>
+                <div class="partner-logo" data-aos="fade-up" data-aos-delay="200">
+                    <div class="partner-card">
+                        <img src="../image/Adidas - Logo.jpeg"alt="Adidas">
+                        <span class="partner-name">Adidas</span>
+                    </div>
+                </div>
+                <div class="partner-logo" data-aos="fade-up" data-aos-delay="300">
+                    <div class="partner-card">
+                        <img src="../image/Puma - logo.jpeg"alt="Puma">
+                        <span class="partner-name">Puma</span>
+                    </div>
+                </div>
+                <div class="partner-logo" data-aos="fade-up" data-aos-delay="400">
+                    <div class="partner-card">
+                        <img src="../image/Zara logo.jpeg"alt="Zara">
+                        <span class="partner-name">Zara</span>
+                    </div>
+                </div>
+                <div class="partner-logo" data-aos="fade-up" data-aos-delay="500">
+                    <div class="partner-card">
+                       <img src="../image/H&M - logo.jpeg"alt="H&M">
+                       <span class="partner-name">H&M</span>
+                    </div>
+                </div>
+                <div class="partner-logo" data-aos="fade-up" data-aos-delay="600">
+                    <div class="partner-card">
+                       <img src="../image/Levi's -logo.jpeg"alt="Levi's">
+                       <span class="partner-name">Levi's</span>
+                    </div>
+                </div>
+                <div class="partner-logo" data-aos="fade-up" data-aos-delay="700">
+                    <div class="partner-card">
+                       <img src="../image/Gucci-logo.jpeg"alt="Gucci">
+                       <span class="partner-name">Gucci</span>
+                    </div>
+                </div>
+                <div class="partner-logo" data-aos="fade-up" data-aos-delay="800">
+                    <div class="partner-card">
+                        <img src="../image/Calvin klein-logo.jpeg"alt="Calvin Klein">
+                        <span class="partner-name">Calvin Klein</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="partners-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Partner Brands</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="2000000">0</div>
+                    <div class="stat-label">Products</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h3>Stay Updated with StyleHub</h3>
+                    <p>Subscribe to our newsletter for exclusive offers, new arrivals, and fashion tips delivered to your inbox.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>StyleHub</span>
+                    </div>
+                    <p>Your premium destination for modern fashion and lifestyle products.</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/arun-l-kumar" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/arun-l-kumar" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:arunkumar582004@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+918778929845"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91-8778929845</p>
+                        <p><i class="fas fa-envelope"></i> arunkumar582004@gmail.com</p>
+                        <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/arun-l-kumar" target="_blank">Arun L Kumar</a></p>
+                        <p><i class="fab fa-github"></i> <a href="https://github.com/arun-l-kumar" target="_blank">arun-l-kumar</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 StyleHub. All rights reserved. | Developed by <a href="https://linkedin.com/in/arun-l-kumar" target="_blank">Arun L Kumar</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total: $<span id="cartTotal">0.00</span></span>
+            </div>
+            <button class="checkout-btn">
+                <i class="fas fa-credit-card"></i>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="quick-view-content">
+            <button class="quick-view-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalBody">
+                <!-- Modal content will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Live Chat Button -->
+    <button class="live-chat-btn" id="liveChatBtn">
+        <i class="fas fa-comments"></i>
+        <span class="chat-notification">1</span>
+    </button>
+
+    <!-- Immediate Loading Screen Removal Fallback -->
+    <script>
+        // Immediate fallback to hide loading screen if JavaScript fails
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }
+        }, 1000);
+    </script>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+
+    <!-- JavaScript -->
+    <script src="../js/enhanced-script.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        // Only register ServiceWorker if running on HTTP/HTTPS (not file://)
+        if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('../sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        } else if (location.protocol === 'file:') {
+            console.log('ServiceWorker not supported with file:// protocol. Please use a local server.');
+        }
+    </script>
+</body>
+</html>

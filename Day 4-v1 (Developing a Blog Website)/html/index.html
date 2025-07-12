@@ -1,103 +1,678 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>ANIME BLOG</title>
-    <style>
-        body{
-            padding: 0;
-            margin: o;
-            background-color: #E0F7FA;
-            color: #00796B;
-            font-family: Arial, sans-serif;
-        }
-        header{
-            background-color: #333333;
-            color: #FFFFFF;
-            padding: 10px 20px;
-            text-align: center;
-            border-radius: 50px;
-            box-shadow: 5px 5px 5px grey;
-        }
-        header:hover{
-            background-color: aqua;
-            color: black;
-        }
-        main{
-            max-width: 700px;
-            margin: auto;
-            padding: 15px;
-        }
-        h2{
-            text-align: center;
-            color: rgb(233, 23, 23);
-            
-        }
-        .Post{
-            background-color: aquamarine;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 2px solid black;
-        }
-        .Post img{
-            margin-left: 80px;
-        }
-        .Post p{
-            text-align: justify;
-            color: #333333;
-            font-weight: bold;
-        }
-        footer{
-            background-color: #333333;
-            color: #E0F7FA;
-            padding: 10px 20px;
-            text-align: center;
-            border-radius: 50px;
-            box-shadow: 5px 5px 5px grey;
-
-        }
-    </style>
-</head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Elite Anime Universe - Top 3 Legendary Series</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 <body>
-    <header>
-        <h1>TOP 3 ANIME'S ARTICLE</h1>
-    </header>
+    <!-- Floating particles background -->
+    <div class="particles-container">
+        <div class="particle" style="--delay: 0s; --duration: 20s;"></div>
+        <div class="particle" style="--delay: 5s; --duration: 25s;"></div>
+        <div class="particle" style="--delay: 10s; --duration: 30s;"></div>
+        <div class="particle" style="--delay: 15s; --duration: 22s;"></div>
+        <div class="particle" style="--delay: 20s; --duration: 28s;"></div>
+    </div>
 
-    <main>
-        <article class="Post">
-            <h2>ONE PIECE</h2>
-            <img src="../image/kindpng_7082091.png"  height="500px" width="500px">
-            <p>"One Piece" is a legendary anime series that follows the adventures of Monkey D. Luffy 
-                and his crew as they search for the ultimate treasure, the One Piece.
-                Set in a fantastical world of pirates, the series combines action, humor, and 
-                deep emotional moments to create an unforgettable journey. With over 1,000 episodes, 
-                One Piece has captivated audiences worldwide with its rich storytelling and unique characters.
-            </p>
-        </article>
-        <article class="Post">
-            <h2>NARUTO</h2>
-            <img src="../image/374902_naruto-logo-png.png"  height="500px" width="500px">
-            <p>"Naruto" is a beloved anime series that tells the story of Naruto Uzumaki, 
-                a young ninja with a dream of becoming the Hokage, the strongest ninja in his village. 
-                Despite facing many hardships and prejudices, Naruto's indomitable spirit and 
-                determination inspire those around him. The series is renowned for its compelling characters,
-                deep lore, and epic battles.
-            </p>
-        </article>
-        <article class="Post">
-            <h2>BLEACH</h2>
-            <img src="../image/png-transparent-ichigo-kurosaki-t-shirt-anime-bleach-manga-bleach-logo-fictional-character-cartoon.png" height="500px" width="500px">
-            <p>"Bleach" is an anime series that revolves around Ichigo Kurosaki, 
-                a teenager with the ability to see ghosts. His life changes when he encounters Rukia Kuchiki,
-                a Soul Reaper. Ichigo gains Soul Reaper powers and is thrust into the world of Hollows, spirits, 
-                and the afterlife. Bleach combines supernatural elements with high-stakes battles and 
-                a gripping storyline.
-            </p>
-        </article>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-crown"></i>
+            <span>Elite Anime</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#anime" class="nav-link">Top Anime</a></li>
+            <li><a href="#reviews" class="nav-link">Reviews</a></li>
+            <li><a href="#community" class="nav-link">Community</a></li>
+        </ul>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Discover the</span>
+                    <span class="title-highlight">Legendary</span>
+                    <span class="title-line">Anime Universe</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Journey through the most epic anime series that have captivated millions worldwide
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="1000">0</div>
+                        <div class="stat-label">Episodes Reviewed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label">Top Anime</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Million Fans</div>
+                    </div>
+                </div>
+                <button class="cta-button">
+                    <span>Explore Now</span>
+                    <i class="fas fa-rocket"></i>
+                </button>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-cards">
+                    <div class="preview-card card-1">
+                        <img src="../image/kindpng_7082091.png" alt="One Piece">
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="preview-card card-2">
+                        <img src="../image/374902_naruto-logo-png.png" alt="Naruto">
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="preview-card card-3">
+                        <img src="../image/Bleach-Anime-PNG-Picture.png" alt="Bleach">
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search anime, characters, or genres..." id="searchInput">
+                <div class="search-suggestions" id="searchSuggestions"></div>
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Anime</button>
+                <button class="filter-tab" data-filter="action">Action</button>
+                <button class="filter-tab" data-filter="adventure">Adventure</button>
+                <button class="filter-tab" data-filter="shounen">Shounen</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content" id="anime">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decoration">✨</span>
+                    Top 3 Legendary Anime Series
+                    <span class="title-decoration">✨</span>
+                </h2>
+                <p class="section-subtitle">Experience the masterpieces that defined generations</p>
+            </div>
+
+            <div class="anime-grid">
+                <!-- One Piece Article -->
+                <article class="anime-card" data-anime="onepiece" data-category="action adventure shounen">
+                    <div class="card-header">
+                        <div class="rank-badge">
+                            <span class="rank-number">1</span>
+                            <span class="rank-label">TOP RATED</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn favorite-btn" title="Add to Favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn share-btn" title="Share">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-image">
+                        <img src="../image/kindpng_7082091.png" alt="One Piece Logo" loading="lazy">
+                        <div class="image-overlay">
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                                <span>Watch Trailer</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="anime-tags">
+                            <span class="tag action">Action</span>
+                            <span class="tag adventure">Adventure</span>
+                            <span class="tag shounen">Shounen</span>
+                        </div>
+                        
+                        <h3 class="anime-title">
+                            <i class="fas fa-crown title-icon"></i>
+                            ONE PIECE
+                        </h3>
+                        
+                        <div class="anime-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-text">9.8/10</span>
+                            <span class="rating-count">(1.2M reviews)</span>
+                        </div>
+
+                        <p class="anime-description">
+                            Embark on the ultimate pirate adventure with Monkey D. Luffy and his Straw Hat crew as they search for the legendary treasure, One Piece. This epic tale of friendship, dreams, and determination has captivated audiences for over two decades.
+                        </p>
+
+                        <div class="anime-stats">
+                            <div class="stat">
+                                <i class="fas fa-tv"></i>
+                                <span>1000+ Episodes</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-calendar"></i>
+                                <span>1999 - Present</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>500M+ Fans</span>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button class="read-more-btn" data-anime="onepiece">
+                                <span>Read Full Review</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Naruto Article -->
+                <article class="anime-card" data-anime="naruto" data-category="action adventure shounen">
+                    <div class="card-header">
+                        <div class="rank-badge">
+                            <span class="rank-number">2</span>
+                            <span class="rank-label">LEGENDARY</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn favorite-btn" title="Add to Favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn share-btn" title="Share">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-image">
+                        <img src="../image/374902_naruto-logo-png.png" alt="Naruto Logo" loading="lazy">
+                        <div class="image-overlay">
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                                <span>Watch Trailer</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="anime-tags">
+                            <span class="tag action">Action</span>
+                            <span class="tag adventure">Adventure</span>
+                            <span class="tag shounen">Shounen</span>
+                        </div>
+                        
+                        <h3 class="anime-title">
+                            <i class="fas fa-fire title-icon"></i>
+                            NARUTO
+                        </h3>
+                        
+                        <div class="anime-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-text">9.6/10</span>
+                            <span class="rating-count">(980K reviews)</span>
+                        </div>
+
+                        <p class="anime-description">
+                            Follow the incredible journey of Naruto Uzumaki, a young ninja determined to become Hokage. This masterpiece explores themes of perseverance, friendship, and never giving up on your dreams against all odds.
+                        </p>
+
+                        <div class="anime-stats">
+                            <div class="stat">
+                                <i class="fas fa-tv"></i>
+                                <span>720 Episodes</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-calendar"></i>
+                                <span>2002 - 2017</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>400M+ Fans</span>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button class="read-more-btn" data-anime="naruto">
+                                <span>Read Full Review</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 92%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Bleach Article -->
+                <article class="anime-card" data-anime="bleach" data-category="action adventure shounen">
+                    <div class="card-header">
+                        <div class="rank-badge">
+                            <span class="rank-number">3</span>
+                            <span class="rank-label">ICONIC</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn favorite-btn" title="Add to Favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn share-btn" title="Share">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-image">
+                        <img src="../image/Bleach-Anime-PNG-Picture.png" alt="Bleach Logo" loading="lazy">
+                        <div class="image-overlay">
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                                <span>Watch Trailer</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="anime-tags">
+                            <span class="tag action">Action</span>
+                            <span class="tag supernatural">Supernatural</span>
+                            <span class="tag shounen">Shounen</span>
+                        </div>
+                        
+                        <h3 class="anime-title">
+                            <i class="fas fa-sword title-icon"></i>
+                            BLEACH
+                        </h3>
+                        
+                        <div class="anime-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-text">9.4/10</span>
+                            <span class="rating-count">(750K reviews)</span>
+                        </div>
+
+                        <p class="anime-description">
+                            Enter the supernatural world of Soul Reapers with Ichigo Kurosaki as he battles Hollows and protects both the living and spirit worlds. An epic tale of power, responsibility, and spiritual warfare.
+                        </p>
+
+                        <div class="anime-stats">
+                            <div class="stat">
+                                <i class="fas fa-tv"></i>
+                                <span>366 Episodes</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-calendar"></i>
+                                <span>2004 - 2012</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>300M+ Fans</span>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button class="read-more-btn" data-anime="bleach">
+                                <span>Read Full Review</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
     </main>
-    <footer>
-        <p>  &#128293; Designed by badvibes@2004</p>
-    </footer>
-    
+
+    <!-- Community Section -->
+    <section class="community-section" id="community">
+        <div class="container">
+            <h2 class="section-title">Join Our Anime Community</h2>
+            <div class="community-stats">
+                <div class="community-stat">
+                    <i class="fas fa-users"></i>
+                    <span class="stat-number" data-target="50000">0</span>
+                    <span class="stat-label">Active Members</span>
+                </div>
+                <div class="community-stat">
+                    <i class="fas fa-comments"></i>
+                    <span class="stat-number" data-target="1000000">0</span>
+                    <span class="stat-label">Discussions</span>
+                </div>
+                <div class="community-stat">
+                    <i class="fas fa-star"></i>
+                    <span class="stat-number" data-target="250000">0</span>
+                    <span class="stat-label">Reviews</span>
+                </div>
+            </div>
+            <button class="join-community-btn">
+                <i class="fas fa-plus"></i>
+                <span>Join Community</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Success!</span>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+        </div>
+        <p>Loading amazing content...</p>
+    </div>
+
+    <script>
+        // Enhanced JavaScript functionality
+        class AnimeWebsite {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.setupScrollProgress();
+                this.setupNavigation();
+                this.setupAnimations();
+                this.setupSearch();
+                this.setupFilters();
+                this.setupInteractions();
+                this.animateCounters();
+                this.setupBackToTop();
+                this.showLoadingComplete();
+            }
+
+            setupScrollProgress() {
+                window.addEventListener('scroll', () => {
+                    const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                    document.getElementById('scrollProgress').style.width = scrolled + '%';
+                });
+            }
+
+            setupNavigation() {
+                const navToggle = document.querySelector('.nav-toggle');
+                const navMenu = document.querySelector('.nav-menu');
+                
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+
+                // Smooth scroll for navigation links
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const target = document.querySelector(link.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                        
+                        // Update active nav link
+                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    });
+                });
+            }
+
+            setupAnimations() {
+                // Intersection Observer for animations
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                document.querySelectorAll('.anime-card, .section-header').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            setupSearch() {
+                const searchInput = document.getElementById('searchInput');
+                const suggestions = document.getElementById('searchSuggestions');
+                
+                const animeData = [
+                    'One Piece', 'Naruto', 'Bleach', 'Luffy', 'Zoro', 'Sanji',
+                    'Naruto Uzumaki', 'Sasuke', 'Sakura', 'Ichigo', 'Rukia'
+                ];
+
+                searchInput.addEventListener('input', (e) => {
+                    const query = e.target.value.toLowerCase();
+                    if (query.length > 1) {
+                        const matches = animeData.filter(item => 
+                            item.toLowerCase().includes(query)
+                        );
+                        this.showSuggestions(matches, suggestions);
+                    } else {
+                        suggestions.innerHTML = '';
+                        suggestions.classList.remove('active');
+                    }
+                });
+            }
+
+            showSuggestions(matches, container) {
+                container.innerHTML = matches.map(match => 
+                    `<div class="suggestion-item">${match}</div>`
+                ).join('');
+                container.classList.add('active');
+
+                // Add click handlers
+                container.querySelectorAll('.suggestion-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        document.getElementById('searchInput').value = item.textContent;
+                        container.classList.remove('active');
+                        this.showToast('Searching for: ' + item.textContent);
+                    });
+                });
+            }
+
+            setupFilters() {
+                document.querySelectorAll('.filter-tab').forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        // Update active tab
+                        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+
+                        // Filter anime cards
+                        const filter = tab.dataset.filter;
+                        document.querySelectorAll('.anime-card').forEach(card => {
+                            if (filter === 'all' || card.dataset.category.includes(filter)) {
+                                card.style.display = 'block';
+                                card.classList.add('filter-in');
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            }
+
+            setupInteractions() {
+                // Favorite buttons
+                document.querySelectorAll('.favorite-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const icon = btn.querySelector('i');
+                        if (icon.classList.contains('far')) {
+                            icon.classList.replace('far', 'fas');
+                            btn.classList.add('favorited');
+                            this.showToast('Added to favorites! ❤️');
+                        } else {
+                            icon.classList.replace('fas', 'far');
+                            btn.classList.remove('favorited');
+                            this.showToast('Removed from favorites');
+                        }
+                    });
+                });
+
+                // Share buttons
+                document.querySelectorAll('.share-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.showToast('Share link copied to clipboard! 📋');
+                    });
+                });
+
+                // Read more buttons
+                document.querySelectorAll('.read-more-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const anime = btn.dataset.anime;
+                        this.showToast(`Loading ${anime} full review...`);
+                    });
+                });
+
+                // Play buttons
+                document.querySelectorAll('.play-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.showToast('Opening trailer... 🎬');
+                    });
+                });
+            }
+
+            animateCounters() {
+                const counters = document.querySelectorAll('[data-target]');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            this.animateCounter(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+
+                counters.forEach(counter => observer.observe(counter));
+            }
+
+            animateCounter(element) {
+                const target = parseInt(element.dataset.target);
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        element.textContent = target.toLocaleString();
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, 16);
+            }
+
+            setupBackToTop() {
+                const backToTop = document.getElementById('backToTop');
+                
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                });
+
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            showToast(message) {
+                const toast = document.getElementById('toast');
+                const toastMessage = document.getElementById('toastMessage');
+                
+                toastMessage.textContent = message;
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+
+            showLoadingComplete() {
+                const loading = document.getElementById('loadingOverlay');
+                setTimeout(() => {
+                    loading.classList.add('fade-out');
+                    setTimeout(() => {
+                        loading.style.display = 'none';
+                    }, 500);
+                }, 1500);
+            }
+        }
+
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', () => {
+            new AnimeWebsite();
+        });
+
+        // Add some particle animations
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 0.01;
+                const x = e.clientX * speed;
+                const y = e.clientY * speed;
+                particle.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+{
+  "name": "stylehub-ecommerce",
+  "version": "1.0.0",
+  "description": "Professional e-commerce platform with 3D animations and modern design",
+  "main": "html/enhanced-index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=html/enhanced-index.html",
+    "build": "echo 'Building project...' && npm run minify",
+    "minify": "echo 'Minifying files...'",
+    "test": "echo 'Running tests...'",
+    "lint": "echo 'Linting code...'"
+  },
+  "keywords": [
+    "ecommerce",
+    "shopping",
+    "3d-animations",
+    "responsive",
+    "modern-design"
+  ],
+  "author": {
+    "name": "Arun L Kumar",
+    "email": "arunkumar582004@gmail.com",
+    "url": "https://linkedin.com/in/arun-l-kumar"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arun-l-kumar/stylehub-ecommerce.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arun-l-kumar/stylehub-ecommerce/issues"
+  },
+  "homepage": "https://github.com/arun-l-kumar/stylehub-ecommerce#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
