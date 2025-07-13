@@ -11,7 +11,7 @@ This repository contains a collection of **10 frontend mini-projects** built usi
 | 3️⃣  | [Blog Website](./Day-03_Blog-Website/) | [View Live](https://frontend-enhance.vercel.app/Day%204-v1%20(Developing%20a%20Blog%20Website)/html/index.html) |
 | 4️⃣  | [Netflix Clone](./Day-04_Netflix-Clone/) | [View Live](https://frontend-enhance.vercel.app/Day%205%20(Develop%20a%20Realtime%20NETFLIX%20Website)/html/index.html) |
 | 5️⃣  | [Simple Web Design](./Day-05_Simple-Web-Design/) | [View Live](https://frontend-enhance.vercel.app/Day%206%20(Develop%20a%20Simple%20Web%20Design)/html/index.html) |
-| 6️⃣  | [To-Do Application](./Day-06_Todo-App/) |[View Live](https://frontend-enhance.vercel.app/Day%207%20(JavaScript%20Overview%20Create%20To-Do%20Application/html/index.html) |
+| 6️⃣  | [To-Do Application](./Day-06_Todo-App/)  | [View Live](https://frontend-enhance.vercel.app/Day%207%20(JavaScript%20Overview%20Create%20To-Do%20Application/html/index.html ) |
 | 7️⃣  | [Personal Portfolio Website](./Day-07_Portfolio-Website/) | [View Live](https://frontend-enhance.vercel.app/Day%208%20(Create%20Personal%20Portfolio%20Website)/html/index.html) |
 | 8️⃣  | [Weather Application](./Day-08_Weather-App/) | [View Live](https://frontend-enhance.vercel.app/Day%209%20(Develop%20a%20Weather%20Application)/html/index.html) |
 | 9️⃣  | [Text To Speech Application](./Day-09_Text-To-Speech-App/) | [View Live](https://frontend-enhance.vercel.app/Day%2010%20(Develop%20a%20Text%20To%20Speech%20Application)/index.html) |
