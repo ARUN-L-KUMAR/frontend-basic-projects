@@ -2970,7 +2970,7 @@ body {
     width: 100%;
     height: 100vh;
     background: var(--bg-primary);
-    z-index: 1000;
+    z-index: 1500;
     transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
@@ -2983,7 +2983,7 @@ body {
 
 .page-content {
     min-height: 100vh;
-    padding-top: 80px;
+    padding-top: 0;
     padding-bottom: 40px;
     box-sizing: border-box;
 }
@@ -2994,8 +2994,8 @@ body {
     padding: 25px 0;
     border-bottom: 1px solid var(--border-color);
     position: sticky;
-    top: 80px;
-    z-index: 100;
+    top: 0;
+    z-index: 1001;
     backdrop-filter: blur(15px);
     box-shadow: var(--shadow-lg);
 }
@@ -3583,7 +3583,7 @@ body {
 .wishlist-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 40px 20px 30px;
 }
 
 .wishlist-stats {
@@ -4846,7 +4846,7 @@ input[type="checkbox"] {
     }
     
     .page-header {
-        top: 70px;
+        top: 0;
         padding: 20px 0;
     }
     
