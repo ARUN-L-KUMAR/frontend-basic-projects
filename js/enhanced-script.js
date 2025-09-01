@@ -2131,6 +2131,15 @@ class EnhancedShoppingManager {
         if (addAllToCartBtn) {
             addAllToCartBtn.addEventListener('click', () => this.addAllToCart());
         }
+
+        // Continue shopping button
+        const continueShoppingBtn = document.querySelector('.continue-shopping');
+        if (continueShoppingBtn) {
+            continueShoppingBtn.addEventListener('click', () => {
+                this.closePage();
+                this.showNotification('Returned to shopping', 'success');
+            });
+        }
     }
 
     setupCheckoutFunctionality() {
@@ -2211,24 +2220,78 @@ class EnhancedShoppingManager {
     openCartPage() {
         const cartPage = document.getElementById('cartPage');
         if (cartPage) {
-            cartPage.classList.add('active');
-            this.updateCartDisplay();
+            // Close any other open pages first
+            this.closePage();
+            
+            // Add a small delay to ensure smooth transition
+            setTimeout(() => {
+                cartPage.classList.add('active');
+                this.updateCartDisplay();
+                
+                // Prevent body scrolling when page is open
+                document.body.style.overflow = 'hidden';
+                
+                // Focus on the page for better accessibility
+                cartPage.focus();
+                
+                // Scroll page content to top
+                const pageContent = cartPage.querySelector('.page-content');
+                if (pageContent) {
+                    pageContent.scrollTop = 0;
+                }
+            }, 100);
         }
     }
 
     openWishlistPage() {
         const wishlistPage = document.getElementById('wishlistPage');
         if (wishlistPage) {
-            wishlistPage.classList.add('active');
-            this.updateWishlistDisplay();
+            // Close any other open pages first
+            this.closePage();
+            
+            // Add a small delay to ensure smooth transition
+            setTimeout(() => {
+                wishlistPage.classList.add('active');
+                this.updateWishlistDisplay();
+                
+                // Prevent body scrolling when page is open
+                document.body.style.overflow = 'hidden';
+                
+                // Focus on the page for better accessibility
+                wishlistPage.focus();
+                
+                // Scroll page content to top
+                const pageContent = wishlistPage.querySelector('.page-content');
+                if (pageContent) {
+                    pageContent.scrollTop = 0;
+                }
+            }, 100);
         }
     }
 
     openCheckoutPage() {
         const checkoutPage = document.getElementById('checkoutPage');
         if (checkoutPage) {
-            checkoutPage.classList.add('active');
-            this.goToStep(1);
+            // Close any other open pages first
+            this.closePage();
+            
+            // Add a small delay to ensure smooth transition
+            setTimeout(() => {
+                checkoutPage.classList.add('active');
+                this.goToStep(1);
+                
+                // Prevent body scrolling when page is open
+                document.body.style.overflow = 'hidden';
+                
+                // Focus on the page for better accessibility
+                checkoutPage.focus();
+                
+                // Scroll page content to top
+                const pageContent = checkoutPage.querySelector('.page-content');
+                if (pageContent) {
+                    pageContent.scrollTop = 0;
+                }
+            }, 100);
         }
     }
 
@@ -2237,6 +2300,22 @@ class EnhancedShoppingManager {
         pages.forEach(page => {
             page.classList.remove('active');
         });
+        
+        // Ensure body scrolling is restored
+        document.body.style.overflow = '';
+        
+        // Smooth scroll to top of main content
+        const mainContent = document.querySelector('main');
+        if (mainContent) {
+            mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Update URL without page reload
+        if (window.history && window.history.pushState) {
+            window.history.pushState('', document.title, window.location.pathname);
+        }
     }
 
     goToStep(step) {
